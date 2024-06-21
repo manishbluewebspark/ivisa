@@ -1,0 +1,258 @@
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../node_modules/flag-icon-css/css/flag-icons.min.css';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+
+
+const ApplyForm = () => {
+  const [formData, setFormData] = useState({
+    title: '',
+    firstName: '',
+    middleName: '',
+    lastName: '',
+    email: '',
+    countryCode: '',
+    mobileNumber: '',
+    gender: '',
+    dob: '',
+    nationality: '',
+    passportNumber: '',
+    passportIssuedDate: '',
+    passportExpiryDate: '',
+    passportIssuedCountry: '',
+    countryOfResidence: '',
+    addressLine1: '',
+    addressLine2: '',
+    city: '',
+    pincode: '',
+    country: '',
+    utilityBill: null,
+    photo: null,
+    passportScan: null
+  });
+
+  const [files, setFiles] = useState({
+    utilityBill: null,
+    photo: null,
+    passportScan: null,
+  });
+
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    if (files) {
+      setFormData({
+        ...formData,
+        [name]: files[0]
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value
+      });
+    }
+  };
+
+  const handleFileChange = (e) => {
+    const { name, files } = e.target;
+    setFiles({
+      ...files,
+      [name]: URL.createObjectURL(files[0])
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const username = 'admin';
+    const password = '1234';
+    //const encodedCredentials =  btoa(`${username}:${password}`);
+    const encodedCredentials = 'Basic ' + btoa(username + ':' + password);
+    const headers = {
+      'Authorization': encodedCredentials,
+      'X-API-KEY': 'CODEX@123',
+    };
+
+    const bodyFormData = new FormData();
+    for (const key in formData) {
+      bodyFormData.append(key, formData[key]);
+    }
+
+    try {
+      const response = await axios.post('https://thesoftwareexperts.com/cdksolar/admin/api/submit_form', bodyFormData, { headers });
+      console.log('Success:', response.data);
+      toast.success(response.data.message);
+    } catch (error) {
+      if (error.response) {
+        console.error('Error:', error.response.data);
+        toast.error(error.response.data);
+      } else if (error.request) {
+        console.error('Error:', error.request);
+        toast.error(error.request);
+      } else {
+        console.error('Error:', error.message);
+        toast.error(error.message);
+      }
+    }
+  };
+
+  return (
+    <>
+    <div className="container mt-4">
+        <div className="row apply-form-row">
+            <div className="col-lg-10 max-auto">
+                <div className="card apply-form-card">
+                    <div className="card-body">
+                    <form onSubmit={handleSubmit} className="container mt-4">
+                      <h2>General Information</h2>
+
+                      <div className="row mb-3">
+                        <div className='col-md-3'>
+                          <label className="form-label">Title</label>
+                          <select className="form-select" name="title" value={formData.title} onChange={handleChange}>
+                            <option value="">Select Title</option>
+                            <option value="Mr">Mr</option>
+                            <option value="Ms">Ms</option>
+                            <option value="Mrs">Mrs</option>
+                          </select>
+                        </div>
+                        <div className="col-md-3">
+                          <label className="form-label">First Name</label>
+                          <input type="text" className="form-control" name="firstName" value={formData.firstName} onChange={handleChange} />
+                        </div>
+                        <div className="col-md-3">
+                          <label className="form-label">Middle Name</label>
+                          <input type="text" className="form-control" name="middleName" value={formData.middleName} onChange={handleChange} />
+                        </div>
+                        <div className="col-md-3">
+                          <label className="form-label">Last Name</label>
+                          <input type="text" className="form-control" name="lastName" value={formData.lastName} onChange={handleChange} />
+                        </div>
+                      </div>
+
+                      <div className="mb-3">
+                        <label className="form-label">Email</label>
+                        <input type="email" className="form-control" name="email" value={formData.email} onChange={handleChange} />
+                      </div>
+
+                      <div className="mb-3">
+                      <label className="form-label">Mobile Number with Country Code</label>
+                      <div className="input-group">
+                        <select className="form-select" name="countryCode" value={formData.countryCode} onChange={handleChange}>
+                          <option value="+91" data-flag="in">🇮🇳 India +91</option>
+                          <option value="+1" data-flag="us">🇺🇸 USA +1</option>
+                          <option value="+44" data-flag="gb">🇬🇧 UK +44</option>
+                          {/* Add other country codes as needed */}
+                        </select>
+                        <input type="tel" className="form-control" name="mobileNumber" value={formData.mobileNumber} onChange={handleChange} />
+                      </div>
+                    </div>
+
+                    <div className="mb-3">
+                      <label className="form-label">Gender</label>
+                      <select className="form-select" name="gender" value={formData.gender} onChange={handleChange}>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                      </select>
+                    </div>
+
+                    <div className="mb-3">
+                      <label className="form-label">Date of Birth</label>
+                      <input type="date" className="form-control" name="dob" value={formData.dob} onChange={handleChange} />
+                    </div>
+
+                    <div className="mb-3">
+                      <label className="form-label">Nationality</label>
+                      <input type="text" className="form-control" name="nationality" value={formData.nationality} onChange={handleChange} />
+                    </div>
+
+                    <div className="mb-3">
+                      <label className="form-label">Passport Number</label>
+                      <input type="text" className="form-control" name="passportNumber" value={formData.passportNumber} onChange={handleChange} />
+                    </div>
+
+                    <div className="mb-3">
+                      <label className="form-label">Passport Issued Date</label>
+                      <input type="date" className="form-control" name="passportIssuedDate" value={formData.passportIssuedDate} onChange={handleChange} />
+                    </div>
+
+                    <div className="mb-3">
+                      <label className="form-label">Passport Expiry Date</label>
+                      <input type="date" className="form-control" name="passportExpiryDate" value={formData.passportExpiryDate} onChange={handleChange} />
+                    </div>
+
+                    <div className="mb-3">
+                      <label className="form-label">Passport Issued Country</label>
+                      <select className="form-select" name="passportIssuedCountry" value={formData.passportIssuedCountry} onChange={handleChange}>
+                        <option value="">Select Country</option>
+                        {/* Add countries as needed */}
+                      </select>
+                    </div>
+
+                    <div className="mb-3">
+                      <label className="form-label">Country of Residence</label>
+                      <input type="text" className="form-control" name="countryOfResidence" value={formData.countryOfResidence} onChange={handleChange} />
+                    </div>
+
+                    <div className="mb-3">
+                      <label className="form-label">Residence Address Line 1</label>
+                      <input type="text" className="form-control" name="addressLine1" value={formData.addressLine1} onChange={handleChange} />
+                    </div>
+
+                    <div className="mb-3">
+                      <label className="form-label">Address Line 2</label>
+                      <input type="text" className="form-control" name="addressLine2" value={formData.addressLine2} onChange={handleChange} />
+                    </div>
+
+                    <div className="mb-3">
+                      <label className="form-label">City</label>
+                      <input type="text" className="form-control" name="city" value={formData.city} onChange={handleChange} />
+                    </div>
+
+                    <div className="mb-3">
+                      <label className="form-label">Pincode</label>
+                      <input type="text" className="form-control" name="pincode" value={formData.pincode} onChange={handleChange} />
+                    </div>
+
+                    <div className="mb-3">
+                      <label className="form-label">Country</label>
+                      <select className="form-select" name="country" value={formData.country} onChange={handleChange}>
+                        <option value="">Select Country</option>
+                        {/* Add countries as needed */}
+                      </select>
+                    </div>
+
+                    {/* File Upload Fields */}
+                    <div className="mb-3">
+                      <label className="form-label">Utility Bill in Last 3 Months</label>
+                      <input type="file" className="form-control" name="utilityBill" onChange={handleChange} />
+                      {files.utilityBill && <img src={files.utilityBill} alt="Utility Bill Preview" className="img-preview" />}
+                      <p>Instruction Details with Pic</p>
+                    </div>
+
+                    <div className="mb-3">
+                      <label className="form-label">Photo</label>
+                      <input type="file" className="form-control" name="photo" onChange={handleChange} />
+                      {files.photo && <img src={files.photo} alt="Photo Preview" className="img-preview" />}
+                      <p>Instruction Details with Pic</p>
+                    </div>
+
+                    <div className="mb-3">
+                      <label className="form-label">Passport Scan</label>
+                      <input type="file" className="form-control" name="passportScan" onChange={handleChange} />
+                      {files.passportScan && <img src={files.passportScan} alt="Passport Scan Preview" className="img-preview" />}
+                      <p>Instruction Details with Pic</p>
+                    </div>
+
+                      <button type="submit" className="btn btn-primary">Submit</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </>
+  );
+};
+
+export default ApplyForm

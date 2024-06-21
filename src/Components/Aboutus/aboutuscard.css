@@ -1,0 +1,47 @@
+/* about us cards */
+.carousel-header .card-img{
+    border: 1px solid black ;
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    align-items: center;
+    
+}
+.carousel-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+.fa-star{
+     font-size: 24px;
+     color:#FEC30E ;
+}
+.carousel-content{
+    font-size: 16px ;
+    line-height: 22px;
+    font-weight: 500;
+    justify-content: center;
+}
+.carousel-card{
+    width: 80%;
+    border: 1px solid #dfdfdf;
+    border-radius: 26px;
+    padding: 10px;
+    box-shadow: 0px 2px 8px #888888;
+    padding: 15px;
+   
+}
+
+/* ul.slider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+} */
+ul .slide{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}

@@ -1,0 +1,44 @@
+/* footer css  */
+.footer-heading h5{
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 700;
+    color: #4E4E48;
+}
+.footer-heading-pay h5{
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 700;
+    color: #4E4E48;
+    margin-bottom: 1px;
+}
+.footer-sitemap p a{
+    text-decoration: none;
+    color: #4E4E48;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+
+}
+.footer-sitemap p a:hover{
+    color:#FEC30E;
+}
+.footer-payment-opt{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.footer-payment-opt p{
+    margin-bottom: 0px;
+}
+.payment{
+    padding-top: 47px;
+}
+.footer-row{
+    padding:25px 0px ;
+}
+
+
