@@ -129,11 +129,7 @@ const SingleEntryFortenDay = () => {
 
                 </div>
             </section>
-            <section>
-               <div className="container">
-                
-               </div>
-            </section>
+          
 
 
         </>

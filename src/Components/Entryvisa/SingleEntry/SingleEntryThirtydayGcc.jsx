@@ -1,9 +1,9 @@
 import React from 'react';
 import EntryVisaHeader from '../../Header/EntryVisaHeader';
 
-const SingleEntryNinetySixhour = () => {
-    const title = "96 Hours";
-    const descp = "Dubai Transit Visa"
+const SingleEntryThirtydayGcc = () => {
+    const title = "30 Days";
+    const descp = "Visa for GCC Residents"
     return (
         <>
             <EntryVisaHeader title={title} descp={descp} ></EntryVisaHeader>
@@ -85,49 +85,59 @@ const SingleEntryNinetySixhour = () => {
             </section>
             <section>
                 <div className='container fortenentryvisaone'>
-                    <h4>Dubai Transit Visa 96 hours: Everything You Need to Know</h4>
+                    <h4>Understanding eVisa For GCC Residents</h4>
                     <ul>
-                        <li>The Dubai Transit Visa is a type of entry permit given to travelers who require a layover for more than 8 hours in the airport as a part of airport transit. With this Dubai visa for layover, travelers can move around the UAE for numerous purposes, such as going on a city tour, visiting friends and family, shopping, etc. The validity of a Dubai airport transit visa is 96 hours, and it is not eligible for extension or renewal. If you need a short term visa to stay in the country for more than 96 hours, it is recommended to select the 14 days Dubai tourist visa option. This is a single entry visa, so if you need to enter the UAE more than once, a multiple entry UAE visit visa is what you should select.</li>
-                    </ul>
-                </div>
-            </section>
-            <section>
-                <div className='container fortenentryvisaone'>
-                    <h4>Dubai Transit Visa Price</h4>
-                    <ul>
-                        <li>The UAE transit visa fee for a regular visa is USD 140. The regular transit visa for Dubai takes around 1-3 days to get processed. In case you need your transit visa for UAE before that, you can utilize the express option of the same visa. With the express option, you can receive your 96 hours Dubai transit visa within 24 hours. The cost of an express transit Dubai visa is USD 200.</li>
+                        <li>The residents of the GCC, or Gulf Cooperation Council, are the people who have valid residence permit in Oman, Saudi Arabia, Bahrain, or Kuwait. In order to enter the UAE, GCC residents must apply for a UAE evisa prior to their travel. The UAE visa for GCC residents is recommended for residents of the GCC countries who want to enter the UAE for a short visit. The evisa for GCC residents is a single entry visa valid for 30 days from the date of issue, and you can stay in the country for 30 days. If you need to enter the country more than once, it is suggested that you choose the 30 days multiple entry dubai visa.</li>
                     </ul>
 
                 </div>
             </section>
             <section>
                 <div className='container fortenentryvisaone'>
-                    <h4>Documents required to apply for a UAE Transit VIsa</h4>
-<p>You should submit the following documents while applying for a Dubai transit visa for 96 hours</p>
+                    <h4>Cost For a Dubai Visa for GCC residents</h4>
                     <ul>
-                        <li>Digital copy of the applicant’s Passport with a minimum validity of 6 months</li>
-                        <li>A coloured passport-sized photograph of the applicant.</li>
-                        <li>Onward flight ticket to a destination other than the one you are coming from.</li>
+                        <li>The Dubai Visa for GCC residents cost is USD 390 for a regular visa. There is also an express option available for the same if you require the visa urgently. An Express Dubai visit visa for GCC residents visa will cost you USD 460. The cost of an Express visa is greater than that of a regular one since your visa is approved and sent to you within 24 hours.</li>
                     </ul>
 
                 </div>
             </section>
             <section>
                 <div className='container fortenentryvisaone'>
-                    <h4>How do I get a transit visa Dubai</h4>
-                    <p>e Dubai Visa services provides an easy online portal where you can apply for Dubai transit visa online. Click on the “Apply Now” button.</p>
+                    <h4>Documents Required For GCC residents visa to Dubai</h4>
+                    <p>If you have the following documents, you can apply for an online dubai visa for gcc residents</p>
                     <ul>
-                        <li>Select “Dubai Transit visa” and proceed with the required form.</li>
-                        <li>Fill in your payment details on the next page and pay the visa fee.</li>
+                        <li>Passport with a minimum validity of 3 months from the date of arrival.</li>
+                        <li>Valid residence visa in one of the GCC countries</li>
+                        <li>National Identity Card</li>
+                    </ul>
+
+                </div>
+            </section>
+            <section>
+                <div className='container fortenentryvisaone'>
+                    <h4>Apply for an online uae visa for gcc residents</h4>
+                    <p>In order to apply for a Dubai visit visa online for GCC residents, follow these steps after visiting edubaivisa.ae</p>
+                    <ul>
+                        <li>Click on “Apply Now” on the home page.</li>
+                        <li>Select “30-day Single Entry Visa for GCC Residents”, fill up the application form and submit it.</li>
+                        <li>Fill in the required details and submit the form.</li>
                     </ul>
                 </div>
             </section>
             <section>
                 <div className='container fortenentryvisaone'>
-                    <h4>Get Your 96 hour UAE visa Online</h4>
+                    <h4>Easily Access Your GCC residents visa to UAE</h4>
                     <ul>
-                        <li>Once the payment is successfully made, the application procedures will be started. After the approval, the UAE transit visa will be sent to your email or WhatsApp.</li>
+                        <li>Once the payment is successfully made, the application procedures will be started. After the approval, the GCC residents Dubai visa will be sent to your Email or WhatsApp.</li>
                     </ul>
+                </div>
+            </section>
+            <section>
+                <div className='container fortenentryvisaone'>
+                    <h4>Other Available UAE Visa Options</h4>
+                    <ul>
+<li>14-Day Visit Visa | 30-Day Single Entry Visa| 30-Day Multiple Entry Visa |60-Day Multiple Entry Visa | 60-Day Single Entry Visa | 60-Day Job Seeker Visa | Dubai Transit Visa</li>                   
+ </ul>
 
                 </div>
             </section>
@@ -135,4 +145,4 @@ const SingleEntryNinetySixhour = () => {
     );
 }
 
-export default SingleEntryNinetySixhour;
+export default SingleEntryThirtydayGcc;
