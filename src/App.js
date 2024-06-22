@@ -6,19 +6,20 @@ import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import ContactUs from './Components/ContactUs';
 import EntryVisaHeader from './Components/Header/EntryVisaHeader';
-import SingleEntryFortenDay from './Components/Entryvisa/SingleEntry/SingleEntryFortenDay';
+
 import ApplyForm from './Components/ApplyForm';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
 
-
-import SingleEntryFortenDay  from './Components/Entryvisa/SingleEntry/SingleEntryFortenDay';
+import SingleEntryFortenDay from './Components/Entryvisa/SingleEntry/SingleEntryFortenDay';
 import SingleEntry_30day  from './Components/Entryvisa/SingleEntry/SingleEntry_30day';
-import SingleEntry_30dayGcc  from './Components/Entryvisa/SingleEntry/SingleEntry_30dayGcc';
-import SingleEntryFortenDay  from './Components/Entryvisa/SingleEntry/SingleEntryFortenDay';
-import SingleEntryNinetySixhour  from './Components/Entryvisa/SingleEntry/SingleEntryNinetySixhour';
 import SingleEntrySixty  from './Components/Entryvisa/SingleEntry/SingleEntrySixty';
+
+import SingleEntry_30dayGcc  from './Components/Entryvisa/SingleEntry/SingleEntry_30dayGcc';
+
+import SingleEntryNinetySixhour  from './Components/Entryvisa/SingleEntry/SingleEntryNinetySixhour';
+
 
 
 
@@ -44,7 +45,6 @@ function App() {
 
           <Route path="/SingleEntryFortenDay" element={<SingleEntryFortenDay />}></Route>
           <Route path="/SingleEntry_30day" element={<SingleEntry_30day />}></Route>
-          <Route path="/SingleEntry_30day" element={<SingleEntrySixty />}></Route>
           <Route path="/SingleEntry_30dayGcc" element={<SingleEntry_30dayGcc />}></Route>
           <Route path="/SingleEntryFortenDay" element={<SingleEntryFortenDay />}></Route>
           <Route path="/SingleEntryNinetySixhour" element={<SingleEntryNinetySixhour />}></Route>
