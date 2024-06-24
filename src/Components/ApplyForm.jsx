@@ -4,13 +4,16 @@ import '../../node_modules/flag-icon-css/css/flag-icons.min.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import Header2 from './Header/Header2';
-import { Link } from 'react-router-dom';
-
+import { Link, useParams } from 'react-router-dom';
 
 const ApplyForm = () => {
+  const { visaType } = useParams();
+  const decodedVisaType = decodeURIComponent(visaType);
+  console.log(decodedVisaType);
+
   const title = 'UAE APPLICATION FORM';
   const [formData, setFormData] = useState({
-    visa: '',
+    visa: decodedVisaType || '',
     title: '',
     firstName: '',
     middleName: '',
@@ -111,7 +114,7 @@ const visaOptions = [
   '14 Days Dubai Visit Visa',
   '30 Days Dubai Visit Visa',
   '60 Days Dubai Visit Visa',
-  '30 30 Days GCC Residence Visa',
+  '30 Days For GCC Residents',
   '96 Hours Dubai Transit Visa',
   '30 Days Multiple Entry Visa',
   '60 Days Multiple Entry Visa'
@@ -169,10 +172,10 @@ const visaOptions = [
                           <div>
                           <label>Select Visa Type</label>
 
-                          <select  className="form-select" name="visa"  value={formData.visa} onChange={handleChange} required >
+                          <select className="form-select" name="visa"  value={formData.visa} onChange={handleChange} required >
                             <option value="">Select...</option>
                               {visaOptions.map((visa, index) => (
-                            <option key={index} value={visa}>{visa}</option>
+                            <option key={index}  value={visa}>{visa}</option>
                               ))}
                           </select>
                           </div>
