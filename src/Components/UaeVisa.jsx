@@ -51,7 +51,6 @@ const UaeVisa = () => {
                                     {activeTab === 'tab-1' && (
                                         <div id="tab-1">
                                             <div className="row">
-                                                {/* <!-- Card 1 --> */}
                                                 <div className="col-lg-4 col-md-4  col-alg">
                                                     <div className="card card-con">
                                                         <div className="card-body">
@@ -91,7 +90,6 @@ const UaeVisa = () => {
                                                     </div>
                                                 </div>
 
-                                                {/* <!-- Card 2 --> */}
                                                 <div className="col-lg-4  col-md-4 col-alg">
                                                     <div className="card card-con">
                                                         <div className="card-body">
@@ -130,7 +128,6 @@ const UaeVisa = () => {
                                                     </div>
                                                 </div>
 
-                                                {/* <!-- Card 3 --> */}
                                                 <div className=" col-lg-4 col-md-4 col-alg">
                                                     <div className="card card-con">
                                                         <div className="card-body">
@@ -171,7 +168,6 @@ const UaeVisa = () => {
                                             </div>
 
                                             <div className="row">
-                                                {/* <!-- Card 4 --> */}
                                                 <div className="col-md-6 col-alg">
                                                     <div className="card card-con">
                                                         <div className="card-body">
