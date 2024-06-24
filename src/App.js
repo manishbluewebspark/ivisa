@@ -11,7 +11,6 @@ import ApplyForm from './Components/ApplyForm';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
-
 import SingleEntryFortenDay from './Components/Entryvisa/SingleEntry/SingleEntryFortenDay';
 import SingleEntry_30day  from './Components/Entryvisa/SingleEntry/SingleEntry_30day';
 import SingleEntrySixty  from './Components/Entryvisa/SingleEntry/SingleEntrySixty';
@@ -27,9 +26,9 @@ import UaeVisa from './Components/UaeVisa';
 import Terms from './Components/Terms';
 import NavbarResponsive from './Components/NavbarResponsive';
 import Login from './Components/Auth/Login';
-
-
-
+import ApplicationStatus from './Components/ApplicationStatus';
+import PrivateRoute from './Components/PrivateRoute';
+import Checkout from './Components/Checkout';
 
 
 function App() {
@@ -56,15 +55,13 @@ function App() {
           <Route path="/what-is-an-Express-Visa-and-How-to-apply" element={<BlogTwo />}></Route>
           <Route path="/uae-visa" element={<UaeVisa />}></Route>
           <Route path="/terms" element={<Terms />}></Route>
+          <Route path="/application" element={<ApplicationStatus />}></Route>
           <Route path="/login" element={<Login />}></Route>
-
+          <Route path="/checkout" element={<Checkout />}></Route>
         </Routes>
         <ToastContainer />
         <Footer />
       </BrowserRouter>
-     
-
-
     </>
   );
 }

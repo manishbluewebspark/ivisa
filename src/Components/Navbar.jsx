@@ -34,11 +34,6 @@ const Navbar = () => {
                         <Dropdown.Item><Link to="/60-days-dubai-visit-visa">60 Days Dubai Visit Visa</Link></Dropdown.Item>
                         <Dropdown.Item><Link to="/30-day-gcc-residents">30 Days GCC Residence Visa</Link></Dropdown.Item>
                         <Dropdown.Item><Link to="/96-hours-dubai-visit-visa">96 Hours Dubai Transit Visa</Link></Dropdown.Item>
-
-
-
-
-
                         <h6 class="dropedown-heading">Multiple Entry VISA</h6>
                         <Dropdown.Item><Link to="/30-days-multi-entry-visa">30 Days Multiple Entry Visa</Link></Dropdown.Item>
                         <Dropdown.Item><Link to="/60-days-multi-entry-visa">60 Days Multiple Entry Visa</Link></Dropdown.Item>
