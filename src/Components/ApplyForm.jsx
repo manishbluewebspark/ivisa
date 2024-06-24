@@ -3,10 +3,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../node_modules/flag-icon-css/css/flag-icons.min.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import Header2 from './Header/Header2';
+import { Link } from 'react-router-dom';
 
 
 const ApplyForm = () => {
+  const title = 'UAE APPLICATION FORM';
   const [formData, setFormData] = useState({
+    visa: '',
     title: '',
     firstName: '',
     middleName: '',
@@ -61,6 +65,60 @@ const ApplyForm = () => {
     });
   };
 
+
+  const topCountries = [
+    'United States',
+    'China',
+    'India',
+    'Brazil',
+    'United Kingdom',
+    'Russia',
+    'France',
+    'Italy',
+    'Spain',
+    'Mexico',
+    'Germany',
+    'Indonesia',
+    'Turkey',
+    'Netherlands',
+    'Saudi Arabia'
+];
+
+
+const passporttopCountries = [
+
+
+  'United States',
+    'China',
+    'India',
+    'Brazil',
+    'United Kingdom',
+    'Russia',
+    'France',
+    'Italy',
+    'Spain',
+    'Mexico',
+    'Germany',
+    'Indonesia',
+    'Turkey',
+    'Netherlands',
+    'Saudi Arabia'
+
+];
+
+
+const visaOptions = [
+  '14 Days Dubai Visit Visa',
+  '30 Days Dubai Visit Visa',
+  '60 Days Dubai Visit Visa',
+  '30 30 Days GCC Residence Visa',
+  '96 Hours Dubai Transit Visa',
+  '30 Days Multiple Entry Visa',
+  '60 Days Multiple Entry Visa'
+];
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const username = 'admin';
@@ -96,161 +154,202 @@ const ApplyForm = () => {
   };
 
   return (
+
     <>
-    <div className="container mt-4">
-        <div className="row apply-form-row">
-            <div className="col-lg-10 max-auto">
-                <div className="card apply-form-card">
-                    <div className="card-body">
-                    <form onSubmit={handleSubmit} className="container mt-4">
-                      <h2>General Information</h2>
+    <Header2 title={title}></Header2>
+    <div className="container my-5">
+    <div className="row justify-content-center">
+        <div className="col-lg-10">
+            <div className="card shadow-sm">
+                <div className="card-body">
+                    <form onSubmit={handleSubmit}>
+                        <h2 className="mb-4">Basic Information</h2>
+                        <hr/>
 
-                      <div className="row mb-3">
-                        <div className='col-md-3'>
-                          <label className="form-label">Title</label>
-                          <select className="form-select" name="title" value={formData.title} onChange={handleChange}>
-                            <option value="">Select Title</option>
-                            <option value="Mr">Mr</option>
-                            <option value="Ms">Ms</option>
-                            <option value="Mrs">Mrs</option>
+                          <div>
+                          <label>Select Visa Type</label>
+
+                          <select  className="form-select" name="visa"  value={formData.visa} onChange={handleChange} required >
+                            <option value="">Select...</option>
+                              {visaOptions.map((visa, index) => (
+                            <option key={index} value={visa}>{visa}</option>
+                              ))}
                           </select>
+                          </div>
+                        <div className="row mb-4">
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Title</label>
+                                <select className="form-select" name="title" value={formData.title} onChange={handleChange} required>
+                                    <option value="">Select Title</option>
+                                    <option value="Mr">Mr</option>
+                                    <option value="Ms">Ms</option>
+                                    <option value="Mrs">Mrs</option>
+                                </select>
+                            </div>
+
+                            
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">First Name</label>
+                                <input type="text" className="form-control" name="firstName" value={formData.firstName} onChange={handleChange} required />
+                            </div>
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Middle Name</label>
+                                <input type="text" className="form-control" name="middleName" value={formData.middleName} onChange={handleChange} />
+                            </div>
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Last Name</label>
+                                <input type="text" className="form-control" name="lastName" value={formData.lastName} onChange={handleChange} required />
+                            </div>
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Email</label>
+                                <input type="email" className="form-control" name="email" value={formData.email} onChange={handleChange} required />
+                            </div>
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Mobile Number with Country Code</label>
+                                <div className="input-group">
+                                    <select className="form-select" name="countryCode" value={formData.countryCode} onChange={handleChange} required>
+                                        <option value="+91">🇮🇳 India +91</option>
+                                        <option value="+1">🇺🇸 USA +1</option>
+                                        <option value="+1">ca CANADA +1</option>
+                           
+                                        <option value="+44">🇬🇧 UK +44</option>
+                                     
+                                    </select>
+                                    <input type="tel" className="form-control" name="mobileNumber" value={formData.mobileNumber} onChange={handleChange} required />
+                                </div>
+                            </div>
                         </div>
-                        <div className="col-md-3">
-                          <label className="form-label">First Name</label>
-                          <input type="text" className="form-control" name="firstName" value={formData.firstName} onChange={handleChange} />
+
+                        <div className="row mb-4">
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Gender</label>
+                                <select className="form-select" name="gender" value={formData.gender} onChange={handleChange} required>
+                                    <option value="">Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Date of Birth</label>
+                                <input type="date" className="form-control" name="dob" value={formData.dob} onChange={handleChange} required />
+                            </div>
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Nationality</label>
+                                <input type="text" className="form-control" name="nationality" value={formData.nationality} onChange={handleChange} required />
+                            </div>
                         </div>
-                        <div className="col-md-3">
-                          <label className="form-label">Middle Name</label>
-                          <input type="text" className="form-control" name="middleName" value={formData.middleName} onChange={handleChange} />
+
+
+                        <h2>Passport Information</h2>
+                        <hr/>
+                      <div className="row mb-4">
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Passport Number</label>
+                                <input type="text" className="form-control" name="passportNumber" value={formData.passportNumber} onChange={handleChange} required />
+                            </div>
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Passport Issued Date</label>
+                                <input type="date" className="form-control" name="passportIssuedDate" value={formData.passportIssuedDate} onChange={handleChange} required />
+                            </div>
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Passport Expiry Date</label>
+                                <input type="date" className="form-control" name="passportExpiryDate" value={formData.passportExpiryDate} onChange={handleChange} required />
+                            </div>
                         </div>
-                        <div className="col-md-3">
-                          <label className="form-label">Last Name</label>
-                          <input type="text" className="form-control" name="lastName" value={formData.lastName} onChange={handleChange} />
+
+                        <div className="row mb-4">
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Passport Issued Country</label>
+                               
+                                <select className="form-select" name="passportIssuedCountry" value={formData.passportcountry} onChange={handleChange} required>
+                                <option value="">Select Country</option>
+                                {topCountries.map((passportcountry, index) => (
+                                    <option key={index} value={passportcountry}>{passportcountry}</option>
+                                ))}
+                            </select>
+
+
+                            </div>
+                            <br/> <br/>                            <h2>Residence Information</h2>
+                            <hr/>
+
+
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Country of Residence</label>
+                                <input type="text" className="form-control" name="countryOfResidence" value={formData.countryOfResidence} onChange={handleChange} required />
+                            </div>
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Residence Address Line 1</label>
+                                <input type="text" className="form-control" name="addressLine1" value={formData.addressLine1} onChange={handleChange} required />
+                            </div>
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Address Line 2</label>
+                                <input type="text" className="form-control" name="addressLine2" value={formData.addressLine2} onChange={handleChange} />
+                            </div>
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">City</label>
+                                <input type="text" className="form-control" name="city" value={formData.city} onChange={handleChange} required />
+                            </div>
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Pincode</label>
+                                <input type="text" className="form-control" name="pincode" value={formData.pincode} onChange={handleChange} required />
+                            </div>
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Country</label>
+                                <select className="form-select" name="country" value={formData.country} onChange={handleChange} required>
+                                  <option value="">Select Country</option>
+                                  {topCountries.map((country, index) => (
+                                      <option key={index} value={country}>{country}</option>
+                                  ))}
+                              </select>
+                            </div>
                         </div>
-                      </div>
 
-                      <div className="mb-3">
-                        <label className="form-label">Email</label>
-                        <input type="email" className="form-control" name="email" value={formData.email} onChange={handleChange} />
-                      </div>
+                        <h4 className="mt-4">Document Uploads</h4>
+                        <hr/>
+                        <div className="row mb-4">
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Utility Bill in Last 3 Months</label>
+                                <input type="file" className="form-control" name="utilityBill" onChange={handleChange} required />
+                                {files.utilityBill && <img src={files.utilityBill} alt="Utility Bill Preview" className="img-preview mt-2" />}
+                                <p>Instruction Details with Pic</p>
+                            </div>
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Photo</label>
+                                <input type="file" className="form-control" name="photo" onChange={handleChange} required />
+                                {files.photo && <img src={files.photo} alt="Photo Preview" className="img-preview mt-2" />}
+                                <p>Instruction Details with Pic</p>
+                            </div>
+                            <div className="col-md-4 mb-3">
+                                <label className="form-label">Passport Scan</label>
+                                <input type="file" className="form-control" name="passportScan" onChange={handleChange} required />
+                                {files.passportScan && <img src={files.passportScan} alt="Passport Scan Preview" className="img-preview mt-2" />}
+                                <p>Instruction Details with Pic</p>
+                            </div>
 
-                      <div className="mb-3">
-                      <label className="form-label">Mobile Number with Country Code</label>
-                      <div className="input-group">
-                        <select className="form-select" name="countryCode" value={formData.countryCode} onChange={handleChange}>
-                          <option value="+91" data-flag="in">🇮🇳 India +91</option>
-                          <option value="+1" data-flag="us">🇺🇸 USA +1</option>
-                          <option value="+44" data-flag="gb">🇬🇧 UK +44</option>
-                          {/* Add other country codes as needed */}
-                        </select>
-                        <input type="tel" className="form-control" name="mobileNumber" value={formData.mobileNumber} onChange={handleChange} />
-                      </div>
-                    </div>
+                            <hr/>
+                            <div className="col-md-12 mb-3">
+                            <input type="checkbox" className="form-check-input" /> &nbsp; &nbsp; &nbsp;
+                             <label className="form-label">I have read and agree to the  <Link to='/terms' target="_blank">Terms and Conditions</Link></label>
+                                
+                               
+                            </div>
 
-                    <div className="mb-3">
-                      <label className="form-label">Gender</label>
-                      <select className="form-select" name="gender" value={formData.gender} onChange={handleChange}>
-                        <option value="">Select Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                      </select>
-                    </div>
 
-                    <div className="mb-3">
-                      <label className="form-label">Date of Birth</label>
-                      <input type="date" className="form-control" name="dob" value={formData.dob} onChange={handleChange} />
-                    </div>
 
-                    <div className="mb-3">
-                      <label className="form-label">Nationality</label>
-                      <input type="text" className="form-control" name="nationality" value={formData.nationality} onChange={handleChange} />
-                    </div>
-
-                    <div className="mb-3">
-                      <label className="form-label">Passport Number</label>
-                      <input type="text" className="form-control" name="passportNumber" value={formData.passportNumber} onChange={handleChange} />
-                    </div>
-
-                    <div className="mb-3">
-                      <label className="form-label">Passport Issued Date</label>
-                      <input type="date" className="form-control" name="passportIssuedDate" value={formData.passportIssuedDate} onChange={handleChange} />
-                    </div>
-
-                    <div className="mb-3">
-                      <label className="form-label">Passport Expiry Date</label>
-                      <input type="date" className="form-control" name="passportExpiryDate" value={formData.passportExpiryDate} onChange={handleChange} />
-                    </div>
-
-                    <div className="mb-3">
-                      <label className="form-label">Passport Issued Country</label>
-                      <select className="form-select" name="passportIssuedCountry" value={formData.passportIssuedCountry} onChange={handleChange}>
-                        <option value="">Select Country</option>
-                        {/* Add countries as needed */}
-                      </select>
-                    </div>
-
-                    <div className="mb-3">
-                      <label className="form-label">Country of Residence</label>
-                      <input type="text" className="form-control" name="countryOfResidence" value={formData.countryOfResidence} onChange={handleChange} />
-                    </div>
-
-                    <div className="mb-3">
-                      <label className="form-label">Residence Address Line 1</label>
-                      <input type="text" className="form-control" name="addressLine1" value={formData.addressLine1} onChange={handleChange} />
-                    </div>
-
-                    <div className="mb-3">
-                      <label className="form-label">Address Line 2</label>
-                      <input type="text" className="form-control" name="addressLine2" value={formData.addressLine2} onChange={handleChange} />
-                    </div>
-
-                    <div className="mb-3">
-                      <label className="form-label">City</label>
-                      <input type="text" className="form-control" name="city" value={formData.city} onChange={handleChange} />
-                    </div>
-
-                    <div className="mb-3">
-                      <label className="form-label">Pincode</label>
-                      <input type="text" className="form-control" name="pincode" value={formData.pincode} onChange={handleChange} />
-                    </div>
-
-                    <div className="mb-3">
-                      <label className="form-label">Country</label>
-                      <select className="form-select" name="country" value={formData.country} onChange={handleChange}>
-                        <option value="">Select Country</option>
-                        {/* Add countries as needed */}
-                      </select>
-                    </div>
-
-                    {/* File Upload Fields */}
-                    <div className="mb-3">
-                      <label className="form-label">Utility Bill in Last 3 Months</label>
-                      <input type="file" className="form-control" name="utilityBill" onChange={handleChange} />
-                      {files.utilityBill && <img src={files.utilityBill} alt="Utility Bill Preview" className="img-preview" />}
-                      <p>Instruction Details with Pic</p>
-                    </div>
-
-                    <div className="mb-3">
-                      <label className="form-label">Photo</label>
-                      <input type="file" className="form-control" name="photo" onChange={handleChange} />
-                      {files.photo && <img src={files.photo} alt="Photo Preview" className="img-preview" />}
-                      <p>Instruction Details with Pic</p>
-                    </div>
-
-                    <div className="mb-3">
-                      <label className="form-label">Passport Scan</label>
-                      <input type="file" className="form-control" name="passportScan" onChange={handleChange} />
-                      {files.passportScan && <img src={files.passportScan} alt="Passport Scan Preview" className="img-preview" />}
-                      <p>Instruction Details with Pic</p>
-                    </div>
-
-                      <button type="submit" className="btn btn-primary">Submit</button>
+                        </div>
+                        <hr/>
+                        <div className='d-flex justify-content-center'>
+                        <button type="submit" className="btn btn-lg btn-warning text-center">Submit</button> </div>
                     </form>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
+
     </>
   );
 };

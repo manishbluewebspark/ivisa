@@ -1,5 +1,6 @@
 import React from 'react';
 import EntryVisaHeader from '../../Header/EntryVisaHeader';
+import { Link } from 'react-router-dom';
 
 const SingleEntryFortenDay = () => {
     const title = "14 Days";
@@ -38,7 +39,7 @@ const SingleEntryFortenDay = () => {
                                     </div>
                                     <div class="row">
                                         <div class="col card-btn">
-                                            <button class="btn btn-warning">APPLY NOW</button>
+                                        <button className="btn btn-warning"><Link className='text-white text-decoration-none' to="/apply"> Apply Now</Link></button>
                                         </div>
                                     </div>
                                 </div>
@@ -73,7 +74,7 @@ const SingleEntryFortenDay = () => {
                                     </div>
                                     <div class="row">
                                         <div class="col card-btn">
-                                            <button class="btn btn-warning">APPLY NOW</button>
+                                        <button className="btn btn-warning"><Link className='text-white text-decoration-none' to="/apply"> Apply Now</Link></button>
                                         </div>
                                     </div>
                                 </div>

@@ -19,32 +19,47 @@ import SingleEntry_30dayGcc  from './Components/Entryvisa/SingleEntry/SingleEntr
 import SingleEntryNinetySixhour  from './Components/Entryvisa/SingleEntry/SingleEntryNinetySixhour';
 import MultiEntry_30day  from './Components/Entryvisa/MultiEntry/MultiEntry_30day';
 import MultiEntry_60day from './Components/Entryvisa/MultiEntry/MultiEntry_60day'; 
+import HowToApply from './Components/HowToApply';
+import Blog from './Components/Blog';
+import BlogOne from './Components/Blogs/BlogOne';
+import BlogTwo from './Components/Blogs/BlogTwo';
+import UaeVisa from './Components/UaeVisa';
+import Terms from './Components/Terms';
+import NavbarResponsive from './Components/NavbarResponsive';
+
+
 
 
 
 function App() {
   return (
     <>
-      {/* <ApplyForm></ApplyForm> */}
-      {/* <SingleEntryFortenDay></SingleEntryFortenDay> */}
-      {/* <Navbar /> */}
       <BrowserRouter>
-      <Navbar />
+      {/* <Navbar /> */}
+      <NavbarResponsive></NavbarResponsive>
         <Routes>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/home" element={<Home />}></Route>
           <Route path="/contact-us" element={<ContactUs />}></Route>
           <Route path="/apply" element={<ApplyForm />}></Route>
-          <Route path="/SingleEntryFortenDay" element={<SingleEntryFortenDay />}></Route>
-          <Route path="/SingleEntry_30day" element={<SingleEntry_30day />}></Route>
-          <Route path="/SingleEntrySixty" element={<SingleEntrySixty />}></Route>
-          <Route path="/SingleEntry_30dayGcc" element={<SingleEntry_30dayGcc />}></Route>
-          <Route path="/SingleEntryNinetySixhour" element={<SingleEntryNinetySixhour />}></Route>
-          <Route path="/MultiEntry_30day" element={<MultiEntry_30day />}></Route>
-          <Route path="/MultiEntry_60day" element={<MultiEntry_60day />}></Route>
+          <Route path="/14-days-dubai-visit-visa" element={<SingleEntryFortenDay />}></Route>
+          <Route path="/30-days-dubai-visit-visa" element={<SingleEntry_30day />}></Route>
+          <Route path="/60-days-dubai-visit-visa" element={<SingleEntrySixty />}></Route>
+          <Route path="/30-day-gcc-residents" element={<SingleEntry_30dayGcc />}></Route>
+          <Route path="/96-hours-dubai-visit-visa" element={<SingleEntryNinetySixhour />}></Route>
+          <Route path="/30-days-multi-entry-visa" element={<MultiEntry_30day />}></Route>
+          <Route path="/60-days-multi-entry-visa" element={<MultiEntry_60day />}></Route>
+          <Route path="/how-to-apply" element={<HowToApply />}></Route>
+          <Route path="/blogs" element={<Blog />}></Route>
+          <Route path="/latest-UAE-Visa-Rule-Changes-in-2022-Explained" element={<BlogOne />}></Route>
+          <Route path="/what-is-an-Express-Visa-and-How-to-apply" element={<BlogTwo />}></Route>
+          <Route path="/uae-visa" element={<UaeVisa />}></Route>
+          <Route path="/terms" element={<Terms />}></Route>
         </Routes>
         <ToastContainer />
+        <Footer />
       </BrowserRouter>
-      <Footer />
+     
 
 
     </>

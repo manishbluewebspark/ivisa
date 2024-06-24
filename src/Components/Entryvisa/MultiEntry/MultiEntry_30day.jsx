@@ -1,5 +1,6 @@
 import React from 'react';
 import EntryVisaHeader from '../../Header/EntryVisaHeader';
+import { Link } from 'react-router-dom';
 
 const MultiEntry30day = () => {
     const title = "30 Days";
@@ -20,25 +21,25 @@ const MultiEntry30day = () => {
                                     </div>
                                     <div class="row">
                                         <div class="col card-font">
-                                            <h1>$215</h1>
+                                            <h1>$400</h1>
                                         </div>
                                         <div className='divider'></div>
                                     </div>
                                     <div class="row">
                                         <div class="col card-info">
                                             <h6><i class="fa fa-check"></i> Service Type</h6>
-                                            <p>Regular Visa-Single Entry</p>
+                                            <p>Regular Visa-Multiple Entry</p>
                                             <h6><i class="fa fa-check"></i> Processing Time</h6>
                                             <p>1-3 business days</p>
                                             <h6><i class="fa fa-check"></i> Validity</h6>
                                             <p>60 days from date of issue</p>
                                             <h6><i class="fa fa-check"></i> Stay Period</h6>
-                                            <p>14 days from date of entry</p>
+                                            <p>30 days from date of entry</p>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col card-btn">
-                                            <button class="btn btn-warning">APPLY NOW</button>
+                                        <button className="btn btn-warning"><Link className='text-white text-decoration-none' to="/apply"> Apply Now</Link></button>
                                         </div>
                                     </div>
                                 </div>
@@ -55,25 +56,25 @@ const MultiEntry30day = () => {
                                     </div>
                                     <div class="row">
                                         <div class="col card-font">
-                                            <h1>$285</h1>
+                                            <h1>$470</h1>
                                         </div>
                                         <div className='divider'></div>
                                     </div>
                                     <div class="row">
                                         <div class="col card-info">
                                             <h6><i class="fa fa-check"></i> Service Type</h6>
-                                            <p>Express Visa-Single Entry</p>
+                                            <p>Express Visa-Multiple Entry</p>
                                             <h6><i class="fa fa-check"></i> Processing Time</h6>
                                             <p>Within 24 hours</p>
                                             <h6><i class="fa fa-check"></i> Validity</h6>
                                             <p>60 days from date of issue</p>
                                             <h6><i class="fa fa-check"></i> Stay Period</h6>
-                                            <p>14 days from date of entry</p>
+                                            <p>30 days from date of entry</p>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col card-btn">
-                                            <button class="btn btn-warning">APPLY NOW</button>
+                                        <button className="btn btn-warning"><Link className='text-white text-decoration-none' to="/apply"> Apply Now</Link></button>
                                         </div>
                                     </div>
                                 </div>
