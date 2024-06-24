@@ -41,7 +41,7 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/contact-us" element={<ContactUs />}></Route>
-          <Route path="/apply" element={<ApplyForm />}></Route>
+          <Route path="/apply/:visaType" element={<ApplyForm />}></Route>
           <Route path="/14-days-dubai-visit-visa" element={<SingleEntryFortenDay />}></Route>
           <Route path="/30-days-dubai-visit-visa" element={<SingleEntry_30day />}></Route>
           <Route path="/60-days-dubai-visit-visa" element={<SingleEntrySixty />}></Route>
