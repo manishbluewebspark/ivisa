@@ -8,8 +8,8 @@ const ToggleSwitch = () => {
   };
 
   return (
-    <div onClick={handleClick} className="ToggleSwitch">
-      <div className={isToggleOn ? 'knob active' : 'knob'} />
+    <div onClick={handleClick}  className={isToggleOn ? 'ToggleSwitch active-done' : 'ToggleSwitch'}>
+      <div className={isToggleOn ? 'knob active active-done ' : 'knob'} />
       <span className={isToggleOn ? 'Express' : 'regular'}>{isToggleOn ? "Express" : "regular"}</span>
     </div>
   );

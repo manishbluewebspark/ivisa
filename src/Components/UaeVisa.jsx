@@ -1,62 +1,21 @@
 import React, { useState } from 'react';
-//import img from 'https://thejurni.io/uploads/1625049748.gif'
+import img from '../images/hero-img.png'
 import ToggleSwitch from './ToggleSwitch';
 import AboutusCard from './Aboutus/AboutusCard';
 import { Link } from 'react-router-dom';
-import TopHeader from './Header/TopHeader';
-import UaeVisa from './UaeVisa';
 
-
-
-
-const Landingpage = () => {
-    const [activeTab, setActiveTab] = useState('tab-1');
-
-    const [isActive, setActive] = useState(false);
-
-const handleClick = () => {
-  setActive(prevState => !prevState);
-};
+const UaeVisa = () => {
+    
+        const [activeTab, setActiveTab] = useState('tab-1');
+    
+        const [isActive, setActive] = useState(false);
+    
+    const handleClick = () => {
+      setActive(prevState => !prevState);
+    };
     return (
-        <>
-            {/* <section className='landing-section-one'>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-6" >
-                            <div className='left-con-sec-one mt-2 mb-5'>
-                                <div className="wlc-text mb-4">
-                                    <h1>Welcome to </h1>
-                                    <h1> IVisa Portal</h1>
-                                </div>
-                                <div className='wlc-text'>
-                                    <p className="mb-4">Apply Now For Your UAE Visit Visa and Dubai Tourist Visa Online in <span className='text-warning' >3 Simple Steps.</span></p>
-                                </div>
-                                <div className="mb-4 d">
-                                    <div className="wlc-text-span d-flex ">
-                                        <span className="s1"> <h6>Step 1</h6><p>Fill the Application</p></span>
-                                        <span className="s2"> <h6>Step 2</h6><p>Pay the Fee</p></span>
-                                        <span className="s3"> <h6>Step 3</h6> <p>Get Your VISA</p></span>
-                                    </div>
-                                </div>
-                                <div className='sec-one-apl-btn'>
-                                    <Link className='btn btn-warning text-white' to="/apply"> Apply Now</Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6">
-                            <div className='right-con-sec-one'>
-                                <div className='mt-5'>
-                                <img src="https://i.pinimg.com/originals/7f/30/bd/7f30bdc4a2ff3fc825b9422f8146404a.gif" class="imagehome" alt="" />
-
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> */}
-            <TopHeader></TopHeader>
-            {/* <section className='landing-setion-two'>
+        <div>
+             <section className='landing-setion-two'>
                 <div className="container">
                     <div className='sec-two-head'>
                         <h1 className='text-center'>Choose Your Visa</h1>
@@ -92,7 +51,7 @@ const handleClick = () => {
                                     {activeTab === 'tab-1' && (
                                         <div id="tab-1">
                                             <div className="row">
-                                                <div className="col-md-4 col-alg">
+                                                <div className="col-lg-4 col-md-4  col-alg">
                                                     <div className="card card-con">
                                                         <div className="card-body">
                                                             <div className="row">
@@ -131,7 +90,7 @@ const handleClick = () => {
                                                     </div>
                                                 </div>
 
-                                                <div className="col-md-4 col-alg">
+                                                <div className="col-lg-4  col-md-4 col-alg">
                                                     <div className="card card-con">
                                                         <div className="card-body">
                                                             <div className="row">
@@ -169,7 +128,7 @@ const handleClick = () => {
                                                     </div>
                                                 </div>
 
-                                                <div className="col-md-4 col-alg">
+                                                <div className=" col-lg-4 col-md-4 col-alg">
                                                     <div className="card card-con">
                                                         <div className="card-body">
                                                             <div className="row">
@@ -376,20 +335,9 @@ const handleClick = () => {
                         </div>
                     </div>
                 </div>
-            </section> */}
-            <UaeVisa></UaeVisa>
-            <hr />
-            <section className='aboutus-card'>
-                <div className="container">
-                    <h3 className='aboutus-card-h text-center mt-5 mb-5'>What Our Clients Say About Us</h3>
-                    <div className='mb-5'>
-                        <AboutusCard/>
-                    </div>
-                </div>
             </section>
-            <hr />
-        </>
+        </div>
     );
 }
 
-export default Landingpage;
+export default UaeVisa;
