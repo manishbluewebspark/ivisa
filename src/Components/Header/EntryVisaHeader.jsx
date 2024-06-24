@@ -16,38 +16,39 @@ const EntryVisaHeader = (props) => {
     return (
         <div>
             <section className='header-sec'>
-            <div className="container header-con">
-                 <h2 className='text-center'>{props.title}</h2>
-                 <h6 className='text-center'>{props.descp}</h6>
-            </div>
-            <div className='Entryvisa-head pb-4'>
-            <div className='card-img'>
-                <img src={headeicon1} height={60} width={60} alt="" />
-            </div>
-            <div className='card-img'>
-            <img src={headeicon2} height={60} width={60} alt="" />
-            </div>
-            <div className='card-img'>
-            <img src={headeicon3} height={60} width={60} alt="" />
-            </div>
-            <div className='card-img'>
-            <img src={headeicon4} height={60} width={60} alt="" />
-            </div>
-            <div className='card-img'>
-            <img src={headeicon5} height={60} width={60} alt="" />
-            </div>
-            <div className='card-img'>
-            <img src={headeicon6} height={60} width={60} alt="" />
-            </div>
-            <div className='card-img'>
-            <img src={headeicon7} height={60} width={60} alt="" />
-            </div>
-            <div className='card-img'>
-            <img src={headeicon8} height={60} width={60} alt="" />
-            </div>
-            
+                <div className="container header-con">
+                    <h2 className='text-center'>{props.title}</h2>
+                    <h6 className='text-center'>{props.descp}</h6>
+                </div>
+                <div className='container'>
+                <div className='row Entryvisa-head pb-4'>
+                    <div className='card-img'>
+                        <img src={headeicon1} height={60} width={60} alt="" />
+                    </div>
+                    <div className='card-img'>
+                        <img src={headeicon2} height={60} width={60} alt="" />
+                    </div>
+                    <div className='card-img'>
+                        <img src={headeicon3} height={60} width={60} alt="" />
+                    </div>
+                    <div className='card-img'>
+                        <img src={headeicon4} height={60} width={60} alt="" />
+                    </div>
+                    <div className='card-img'>
+                        <img src={headeicon5} height={60} width={60} alt="" />
+                    </div>
+                    <div className='card-img'>
+                        <img src={headeicon6} height={60} width={60} alt="" />
+                    </div>
+                    <div className='card-img'>
+                        <img src={headeicon7} height={60} width={60} alt="" />
+                    </div>
+                    <div className='card-img'>
+                        <img src={headeicon8} height={60} width={60} alt="" />
+                    </div>
+                </div>
 
-            </div>
+                </div>
             </section>
         </div>
     );

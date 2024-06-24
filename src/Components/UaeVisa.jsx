@@ -120,7 +120,7 @@ const UaeVisa = () => {
                                                                 </div>
                                                                 <div className="row">
                                                                     <div className="col card-btn">
-                                                                        <Link className='text-white text-decoration-none btn btn-warning' to={`/apply/${encodeURIComponent(visa.duration +' '+ visa.visa_type)}`}> 
+                                                                        <Link className='text-white text-decoration-none btn btn-warning' to={`/apply/${encodeURIComponent(visa.duration +' '+ visa.visa_type)}`} state={{visa:visa}}> 
                                                                             Apply Now
                                                                         </Link>
                                                                     </div>

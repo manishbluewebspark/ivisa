@@ -4,12 +4,16 @@ import '../../node_modules/flag-icon-css/css/flag-icons.min.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import Header2 from './Header/Header2';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate, useLocation} from 'react-router-dom';
 
 const ApplyForm = () => {
   const { visaType } = useParams();
   const decodedVisaType = decodeURIComponent(visaType);
   console.log(decodedVisaType);
+  const location = useLocation()
+
+
+  const navigate = useNavigate();
 
   const title = 'UAE APPLICATION FORM';
   const [formData, setFormData] = useState({
@@ -142,6 +146,7 @@ const visaOptions = [
       const response = await axios.post('https://thesoftwareexperts.com/cdksolar/admin/api/submit_form', bodyFormData, { headers });
       console.log('Success:', response.data);
       toast.success(response.data.message);
+      navigate('/checkout', { state: response.data });
     } catch (error) {
       if (error.response) {
         console.error('Error:', error.response.data);
@@ -170,14 +175,17 @@ const visaOptions = [
                         <hr/>
 
                           <div>
-                          <label>Select Visa Type</label>
-
+                          <label>Visa Type :</label>
+                          <h3> Entry {location.state.visa.type} Time  - {location.state.visa.duration} {location.state.visa.visa_type}- {location.state.visa.service_type} 
+                            (AED {location.state.visa.price})
+                          </h3>
+                          {/*   
                           <select className="form-select" name="visa"  value={formData.visa} onChange={handleChange} required >
                             <option value="">Select...</option>
                               {visaOptions.map((visa, index) => (
                             <option key={index}  value={visa}>{visa}</option>
                               ))}
-                          </select>
+                          </select> */}
                           </div>
                         <div className="row mb-4">
                             <div className="col-md-4 mb-3">
@@ -190,6 +198,8 @@ const visaOptions = [
                                 </select>
                             </div>
 
+                            <input type="hidden" name="id" onChange={handleChange} value={location.state.visa.id}/>
+                            <input type="hidden" name="price" onChange={handleChange} value={location.state.visa.price}/>
                             
                             <div className="col-md-4 mb-3">
                                 <label className="form-label">First Name</label>

@@ -1,14 +1,27 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 import '../../src/App.css';
 import logo from '../images/ivisa-logo.jpg';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Button from 'react-bootstrap/Button';
 
 const NavbarResponsive = () => {
+
+  const user = JSON.parse(localStorage.getItem('user'));
+
   const [showNavbar, setShowNavbar] = useState(false);
 
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
+  };
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+      // Remove user data or token here
+      // Example: localStorage.removeItem('user');
+      localStorage.removeItem('user');
+      navigate('/login');
   };
 
   return (
@@ -49,21 +62,7 @@ const NavbarResponsive = () => {
                   <li><Link to="/how-to-apply">HOW TO APPLY</Link></li>
                   <li><Link to="/blogs">BLOGS</Link></li>
                   <li><Link to="/contact-us">Contact Us</Link></li>
-                  {/* <li><Link to="/ar-en">AR-EN</Link></li> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                  <li>{user ?  <Button variant="link" onClick={handleLogout}>Logout</Button> : <Link to="/login">Login</Link>} </li>
                 </ul>
         </div>
       </div>

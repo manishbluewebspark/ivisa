@@ -3,6 +3,12 @@ body{
   font-family: "Poppins", sans-serif !important; 
   color: #4E4E48;
 }
+html, body {
+  overflow-x: hidden;
+}
+body {
+  width:100%;
+}
 /* Apply from css */
 .apply-form-row{
   display: flex;
@@ -143,7 +149,7 @@ a.dropdown-item {
 /* section one */
 .landing-section-one{
   background-color: #ffc10766;
-  min-height: 50vh;
+  min-height: 50vh !important;
 }
 .wlc-text h1{
   font-size: 56px;  
@@ -412,7 +418,7 @@ a.dropdown-item {
 .wlc-text-span .s1:after {
     content: "";
     position: absolute;
-    right: -11px;
+    right: -10px;
     top: 0;
     border-top: 25px solid transparent;
     border-bottom: 24px solid transparent;
@@ -531,7 +537,7 @@ form h4{
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 /* forten Entry visa css  */
 .fortenentryvisaone{
@@ -558,8 +564,8 @@ form h4{
 }
 .Entryvisa-head .card-img{
   /* border: 1px solid black ; */
-  height: 60px;
-  width: 60px;
+  height: 55px;
+  width: 55px;
   border-radius: 30px;
   align-items: center;
   
@@ -637,7 +643,6 @@ form h4{
   line-height: 40px;
 }
 .howtoapply-card{
-    height: 27rem !important;
     padding-top:4rem;
     border-radius: 0px 0px 40px 40px !important;
 }
@@ -1134,8 +1139,32 @@ text-decoration: none;
   }
 }
 
+.visit-us{
+  font-weight: 400;
+    line-height: 20px;
+    margin-top: 15px;
+    font-size: 10;
+}
 /* responsive  */
 @media (max-width:425px) {
+  .step .text {
+    font-size: 6px  !important;
+    font-weight: bold;
+}
+
+
+  .header-con h2{
+    font-size: 24px;
+    line-height: 50px;
+    font-weight: 600;
+    margin-bottom: 0.35em;
+  }
+  .header-con h6{
+    font-size: 12px;
+    line-height: 22px;
+    font-weight: 500;
+    margin-bottom: 0px;
+  }
   .wlc-text h1{
     font-size: 45px;
     line-height: 55px;
@@ -1196,5 +1225,134 @@ text-decoration: none;
   font-size: 30px;
   line-height: 40px;
 }
+.step .icon {
+  font-size: 16px;
 }
+/* .step {
+  padding: 0px;
+}
+.step .text {
+  font-size: 5px;
+  font-weight: bold;
+} */
+}
+@media (max-width:767px) {
+
+  .wlc-text h1{
+    font-size: 45px;
+    line-height: 55px;
+    text-align: center;
+    color: #4E4E48;
+    font-weight: 600;
+  }
+  .wlc-text{
+    padding: 10px;
+  }
+  .wlc-text p {
+    text-align: center;
+  }
+  .wlc-text-span-res{
+    color: white;
+    background-color:#4E4E48;
+    margin: 11px 30px;
+    border-radius: 15px;
+    padding: 14px;
+    font-size: 15px;
+    line-height: 30px;
+  }
+  .sec-one-apl-btn {
+    justify-content: center;
+    text-align: center;
+  }
+  .sec-two-head h1 {
+    font-size: 38px;
+    line-height: 48px;
+   
+}
+.sig-db-btn a {
+  padding: 6px 17px;
+  margin: 4px;
+  border-radius: 9px;
+  font-weight: 400;
+}
+.sig-db-btn {
+  padding: 12px 4px 11px 4px;
+  border-radius: 19px;
+}
+.ToggleSwitch {
+  width: 87px;
+  position: relative;
+  cursor: pointer;
+  padding-left: 4px;
+  margin-bottom: 32px;
+  margin-left: 34px;
+  font-size: 14px;
+}
+.ToggleSwitch .knob.active {
+  left: 57px;
+}
+.card-font h1{
+  font-size: 40px;
+}
+.aboutus-card-h {
+  font-size: 30px;
+  line-height: 40px;
+}
+.step .text {
+  font-size: 9px;
+  font-weight: bold;
+}
+}
+
+@media (max-width:1440px) {
+  .step {
+    flex: 1 1;
+    text-align: center;
+    padding: 5px;
+    border-right: 1px solid #ddd;
+}
+  .right-con-sec-one div img{
+    width: 480px;
+  }
+  .wlc-text-span span {
+    padding: 0px 8px;
+}
+.wlc-text-span span {
+  background-color: #4E4E48;
+  margin-right: 17px;
+  color: white;
+  width: 145px;
+  padding: 0px 8px;
+}
+.wlc-text-span .s1:after {
+  /* border-top: 25px solid transparent; */
+  border-bottom: 21px solid transparent;
+}
+.wlc-text-span .s2::before {
+  border-bottom: 20px solid #4E4E48;
+}
+.wlc-text-span .s2:after {
+
+  border-top: 20px solid transparent;
+}
+.wlc-text-span .s3::before {
+  border-bottom: 20px solid #4E4E48;
+}
+
+}
+/* login form css */
+.login-con{
+  
+  margin-bottom: 20px;
+}
+.login-con .row .login-form-col{
+  border: 1px solid #4E4E48 ;
+  margin-bottom: 20px ;
+  padding: 50px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+
 
