@@ -18,7 +18,7 @@ const AboutusCard = () => {
       const updateCenterSlidePercentage = () => {
         const windowWidth = window.innerWidth;
     
-        if (windowWidth >= 1200) {
+        if (windowWidth >= 1024) {
           setCenterSlidePercentage(33.33);  // For large screens
         } else if (windowWidth >= 992) {
           setCenterSlidePercentage(60);  // For medium screens

@@ -13,24 +13,24 @@ const ContactUs = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-4 col-md-4 col-sm-12 col-12 card-con-contactus">
-                            <div className='cont-opt card text-center p-3 m-2'>
+                            <div className='cont-opt card text-center p-4 m-2'>
                                 <div><i className="fa fa-phone fa-phone-icon"></i></div>
                                 <h4>Call Us</h4>
-                                <p>123-456-7890</p>
+                                <p>+971 50 766 7786</p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-md-4 col-sm-12 card-con-contactus text-center">
+                            <div className='cont-opt card text-center p-2 m-2'>
+                                <div><i className="fa fa-map-marker fa-location-icon"></i></div>
+                                <h4>Visit Us</h4>
+                                <p className='visit-us'>Tosawar LLC FZ 2048 Burjuman Business Tower 15 28A St Al Mankhool Bur Dubai Dubai UAE</p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-12 col-12 card-con-contactus">
-                            <div className='cont-opt card text-center p-3 m-2'>
+                            <div className='cont-opt card text-center p-4 m-2'>
                                 <div><i className="fa fa-envelope fa-email-icon"></i></div>
                                 <h4>Email Us</h4>
-                                <p>info@example.com</p>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-4 col-sm-12 col-12 card-con-contactus text-center">
-                            <div className='cont-opt card text-center p-3 m-2'>
-                                <div><i className="fa fa-map-marker fa-location-icon"></i></div>
-                                <h4>Visit Us</h4>
-                                <p>123 Main Street, City, Country</p>
+                                <p>Support@ivisa.com</p>
                             </div>
                         </div>
                     </div>

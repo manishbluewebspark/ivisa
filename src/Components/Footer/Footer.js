@@ -9,22 +9,22 @@ const Footer = () => {
             <section className='footer-sec'>
                 <div className="container">
                     <div className="row footer-row">
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-md-4 col-sm-12 col-12">
                             <div>
                                 <img src={logo} alt="" width={200} height={100} />
                             </div>
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6">
                             <div className='footer-heading'>
                                 <h5>Company</h5>
                             </div>
-                            <div className='footer-sitemap'>
+                            <div className='footer-sitemap '>
                                 <p><a href="#">UAE Visa</a></p>
                                 <p><a href="">Contact us</a></p>
                                 <p><Link to='/terms'>Terms & Conditions</Link></p>
                             </div>
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 ">
                             <div className='footer-heading'>
                                 <h5>Resources</h5>
                             </div>
@@ -34,11 +34,11 @@ const Footer = () => {
                                 <p><a href="">FAQs</a></p>
                             </div>
                         </div>
-                        <div className="col-lg-3 payment">
+                        <div className="col-lg-3 col-md-12 col-sm-12 col-12 payment">
                             <div className='footer-heading-pay'>
                                 <h5 className='text-center'>Payment Methods</h5>
                             </div>
-                            <div className='footer-payment-opt'>
+                            <div className='footer-payment-opt d-md-block text-center'>
                                 <p> <img src="https://www.edubaivisa.ae/icons/padlock.png" alt="lock icon" width="15" height="15"/>100% Secure payment options</p>
                                 <div className='footer-payment-opt'>
                                     <img src="https://www.edubaivisa.ae/icons/visa.svg" alt="" width={60} height={50} />

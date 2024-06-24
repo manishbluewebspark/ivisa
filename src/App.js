@@ -26,6 +26,7 @@ import BlogTwo from './Components/Blogs/BlogTwo';
 import UaeVisa from './Components/UaeVisa';
 import Terms from './Components/Terms';
 import NavbarResponsive from './Components/NavbarResponsive';
+import Login from './Components/Auth/Login';
 
 
 
@@ -55,6 +56,8 @@ function App() {
           <Route path="/what-is-an-Express-Visa-and-How-to-apply" element={<BlogTwo />}></Route>
           <Route path="/uae-visa" element={<UaeVisa />}></Route>
           <Route path="/terms" element={<Terms />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+
         </Routes>
         <ToastContainer />
         <Footer />
