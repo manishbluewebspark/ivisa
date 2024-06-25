@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import img2 from '../images/applicationform.jpg';
 import img1 from '../images/choeseyourvisa.jpg';
 import img3 from '../images/visa-payment.png';
-import img4 from '../images/visa.jpg';
+import img4 from '../images/ivisa-logo.jpg';
 import Header from './Header/Header';
 
 const HowToApply = () => {
