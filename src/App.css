@@ -9,6 +9,9 @@ html, body {
 body {
   width:100%;
 }
+.col-alg-new{
+  margin: 0px 60px;
+}
 /* Apply from css */
 .apply-form-row{
   display: flex;
@@ -286,7 +289,9 @@ a.dropdown-item {
 .card-con {
   margin-bottom: 20px;
   width: 330px;
-  border-radius: 20px;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  
 }
 .card-con .card-body{
   padding: 23px;
@@ -297,6 +302,7 @@ a.dropdown-item {
   line-height: 32px;
   color: #4E4E48;
   margin-bottom: 2px;
+  
 }
 .card-font p{
   font-size: 16px;
@@ -338,6 +344,7 @@ a.dropdown-item {
   align-items: center;
   display: flex;
 }
+
 .card-font h1{
   font-size: 48px;
   font-weight: 600;
@@ -356,7 +363,7 @@ a.dropdown-item {
   justify-content: center;
   align-items: center;
 }
-.card-btn button{
+.card-btn .btn{
   height: 40px;
   border-radius: 10px;
   width: 93%;
@@ -375,8 +382,8 @@ a.dropdown-item {
   .ToggleSwitch {
     /* background: linear-gradient(#ccc, #eee); */
     border: 1px solid ;
-    height: 2em;
-    width: 100px;
+    height: 27px;
+    width: 84px;
     border-radius: 1em;
     position: relative; 
     cursor: pointer; 
@@ -387,8 +394,8 @@ a.dropdown-item {
   
   .ToggleSwitch .knob {
     position: absolute;
-    width: 1.9em;
-    height: 1.9em;
+    width: 25px;
+    height: 25px;
     background: #666;
     border: 1px solid #ddd;
     border-radius: 50%;
@@ -397,10 +404,15 @@ a.dropdown-item {
   }
   
   .ToggleSwitch .knob.active {
-    left: 67px;
+    left: 56px;
   }
   .regular{
-    padding-left: 28px;
+    padding-left: 24px;
+    font-size: 14px;
+  }
+  .Express{
+    /* padding-left: 28px; */
+    font-size: 14px;
   }
   
 .wlc-text-span .s1{
@@ -1059,6 +1071,7 @@ text-decoration: none;
   height: 60px;
   background-color: white;
   position: relative;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .nav-menu-icon {
@@ -1207,7 +1220,7 @@ text-decoration: none;
   border-radius: 19px;
 }
 .ToggleSwitch {
-  width: 87px;
+  width: 27px;
   position: relative;
   cursor: pointer;
   padding-left: 4px;
@@ -1280,7 +1293,7 @@ text-decoration: none;
   border-radius: 19px;
 }
 .ToggleSwitch {
-  width: 87px;
+  width: 85px;
   position: relative;
   cursor: pointer;
   padding-left: 4px;
@@ -1290,6 +1303,13 @@ text-decoration: none;
 }
 .ToggleSwitch .knob.active {
   left: 57px;
+}
+.regular{
+  font-size: 12px;
+
+}
+.Express{
+  font-size: 12px;
 }
 .card-font h1{
   font-size: 40px;
@@ -1353,6 +1373,40 @@ text-decoration: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 }
+/* payment gateway css */
+.payment-gateway-card{
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.total-payable{
+  border: 2px solid;
+  font-size: 22px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  border-color:#f1c33c;
+}
+.nav-link{
+  color: #f1c33c !important;
+
+}
+.payment-scan{
+  border: 1px solid;
+  height: 10em;
+  width: 10em;
+}
+.payment-scan-con{
+   display: flex;
+   justify-content:center ;
+   align-items: center;
+}
+.nav-item .active{
+  color:#4E4E48 !important;
+}
+
+
 
 
 
