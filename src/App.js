@@ -30,6 +30,8 @@ import ApplicationStatus from './Components/ApplicationStatus';
 import PrivateRoute from './Components/PrivateRoute';
 import Checkout from './Components/Checkout';
 import PaymentGateway from './Components/Payment_gateway/PaymentGateway';
+import Success from './Components/Success';
+
 
 
 function App() {
@@ -60,7 +62,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/checkout" element={<Checkout />}></Route>
           <Route path="/payment-gateway" element={<PaymentGateway />}></Route>
-
+          <Route path="/success" element={<Success />}></Route>
         </Routes>
         <ToastContainer />
         <Footer />

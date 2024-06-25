@@ -1408,5 +1408,24 @@ text-decoration: none;
 
 
 
+.body-section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh !important;
+}
 
-
+.payment-section {
+  border: 2px solid #FFA500;
+  padding: 20px;
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+}
+.payment-section h2 {
+  color: #020202;
+}
+.payment-section .btn-primary {
+  background-color: #fbb512;
+  border-color: #fbb512;
+}
