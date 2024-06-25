@@ -1,86 +1,102 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import EntryVisaHeader from '../../Header/EntryVisaHeader';
 import { Link } from 'react-router-dom';
+import ToggleSwitch from '../../ToggleSwitch';
+import axios from 'axios';
 
 const SingleEntrySixty = () => {
     const title = "60 Days";
-    const descp = "Dubai Visit visa VISA"
+    const descp = "Dubai Visit visa VISA";
+    const duration = "60 Days";
+    const [isActive, setActive] = useState(false);
+
+    const [visaPrices, setVisaPrices] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    const handleClick = () => {
+        setActive(prevState => !prevState);
+    };
+
+    const username = 'admin';
+    const password = '1234';
+    //const encodedCredentials =  btoa(`${username}:${password}`);
+    const encodedCredentials = 'Basic ' + btoa(username + ':' + password);
+    const headers = {
+        'Authorization': encodedCredentials,
+        'X-API-KEY': 'CODEX@123',
+    };
+
+    useEffect(() => {
+        const fetchVisaPrices = async () => {
+            try {
+                const response = await axios.get(`https://thesoftwareexperts.com/cdksolar/admin/api/prices_by_page/60/3/single`, { headers });
+                setVisaPrices(response.data);
+                setLoading(false);
+            } catch (error) {
+                setError(error);
+                setLoading(false);
+            }
+        };
+
+        fetchVisaPrices();
+    }, [duration]);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
+
+
     return (
         <>
             <EntryVisaHeader title={title} descp={descp} ></EntryVisaHeader>
             <section>
                 <div className="container">
-                    <div class="row mt-5">
-                        <div class="col-md-6 col-alg">
-                            <div class="card card-con">
+                    <div className="row mt-5">
+                        {visaPrices.map((visa) => (
+                            <div className="col-lg-4 col-md-4  col-alg col-alg-new">
+                              <div class="card card-con">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col card-font mb-2">
-                                            <h3 className='text-center'>Regular</h3>
+                                            <h3 className='text-center'>{visa.service_type}</h3>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col card-font">
-                                            <h1>$350</h1>
+                                            <h1>${visa.price}</h1>
                                         </div>
                                         <div className='divider'></div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col card-info">
-                                            <h6><i class="fa fa-check"></i> Service Type</h6>
-                                            <p>Regular Visa-Single Entry</p>
-                                            <h6><i class="fa fa-check"></i> Processing Time</h6>
-                                            <p>1-3 business days</p>
-                                            <h6><i class="fa fa-check"></i> Validity</h6>
-                                            <p>60 days from date of issue</p>
-                                            <h6><i class="fa fa-check"></i> Stay Period</h6>
-                                            <p>60 days from date of entry</p>
+                                    <div className="row">
+                                            <div className="col card-info">
+                                                <h6><i className={isActive ? 'fa fa-check  eee' : 'fa fa-check'}></i> Service Type</h6>
+                                                <p>{visa.service_type}</p>
+                                                <h6><i className="fa fa-check"></i> Processing Time</h6>
+                                                <p>{visa.processing_time}</p>
+                                                <h6><i className="fa fa-check"></i> Validity</h6>
+                                                <p>{visa.validity}</p>
+                                                <h6><i className="fa fa-check"></i> Stay Period</h6>
+                                                <p>{visa.stay_period}</p>
+                                            </div>
                                         </div>
-                                    </div>
                                     <div class="row">
                                         <div class="col card-btn">
-                                        <button className="btn btn-warning"><Link className='text-white text-decoration-none' to="/apply"> Apply Now</Link></button>
+                                                <Link className='text-white text-decoration-none btn btn-warning' to={`/apply/${encodeURIComponent(visa.duration + ' ' + visa.visa_type)}`} state={{ visa: visa }}>
+                                                    Apply Now
+                                                </Link>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-md-6 col-alg">
-                            <div class="card card-con">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col card-font mb-2">
-                                            <h3 className='text-center'>Express</h3>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col card-font">
-                                            <h1>$420</h1>
-                                        </div>
-                                        <div className='divider'></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col card-info">
-                                            <h6><i class="fa fa-check"></i> Service Type</h6>
-                                            <p>Express Visa-Single Entry</p>
-                                            <h6><i class="fa fa-check"></i> Processing Time</h6>
-                                            <p>Within 24 hours</p>
-                                            <h6><i class="fa fa-check"></i> Validity</h6>
-                                            <p>60 days from date of issue</p>
-                                            <h6><i class="fa fa-check"></i> Stay Period</h6>
-                                            <p>60 days from date of entry</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col card-btn">
-                                        <button className="btn btn-warning"><Link className='text-white text-decoration-none' to="/apply"> Apply Now</Link></button>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-                        </div>
+                        ))}
                     </div>
+
                 </div>
 
             </section>
