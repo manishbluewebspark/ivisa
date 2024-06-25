@@ -9,11 +9,9 @@ import { Link, useParams, useNavigate, useLocation} from 'react-router-dom';
 const ApplyForm = () => {
   const { visaType } = useParams();
   const decodedVisaType = decodeURIComponent(visaType);
-  console.log(decodedVisaType);
-  const location = useLocation()
-
-
+  const location = useLocation();
   const navigate = useNavigate();
+
 
   const title = 'UAE APPLICATION FORM';
   const [formData, setFormData] = useState({
@@ -146,7 +144,7 @@ const visaOptions = [
       const response = await axios.post('https://thesoftwareexperts.com/cdksolar/admin/api/submit_form', bodyFormData, { headers });
       console.log('Success:', response.data);
       toast.success(response.data.message);
-      navigate('/checkout', { state: response.data });
+      navigate('/checkout', { state: location.state.visa });
     } catch (error) {
       if (error.response) {
         console.error('Error:', error.response.data);
@@ -176,7 +174,7 @@ const visaOptions = [
 
                           <div>
                           <label>Visa Type :</label>
-                          <h3> Entry {location.state.visa.type} Time  - {location.state.visa.duration} {location.state.visa.visa_type}- {location.state.visa.service_type} 
+                          <h3> Entry {location.state.visa.type} Time  - {location.state.visa.duration} {location.state.visa.visa_type} - {location.state.visa.service_type} 
                             (AED {location.state.visa.price})
                           </h3>
                           {/*   
@@ -200,7 +198,10 @@ const visaOptions = [
 
                             <input type="hidden" name="id" onChange={handleChange} value={location.state.visa.id}/>
                             <input type="hidden" name="price" onChange={handleChange} value={location.state.visa.price}/>
-                            
+                            <input type="hidden" name="duration" onChange={handleChange} value={location.state.visa.duration} />
+                            <input type="hidden" name="visa_type" onChange={handleChange} value={location.state.visa.visa_type} />
+                            <input type="hidden" name="service_type" onChange={handleChange} value={location.state.visa.service_type} />
+
                             <div className="col-md-4 mb-3">
                                 <label className="form-label">First Name</label>
                                 <input type="text" className="form-control" name="firstName" value={formData.firstName} onChange={handleChange} required />
@@ -262,11 +263,11 @@ const visaOptions = [
                             </div>
                             <div className="col-md-4 mb-3">
                                 <label className="form-label">Passport Issued Date</label>
-                                <input type="date" className="form-control" name="passportIssuedDate" value={formData.passportIssuedDate} onChange={handleChange} required />
+                                <input type="date" className="form-control" name="passportIssuedDate" value={formData.passportIssuedDate} onChange={handleChange}  />
                             </div>
                             <div className="col-md-4 mb-3">
                                 <label className="form-label">Passport Expiry Date</label>
-                                <input type="date" className="form-control" name="passportExpiryDate" value={formData.passportExpiryDate} onChange={handleChange} required />
+                                <input type="date" className="form-control" name="passportExpiryDate" value={formData.passportExpiryDate} onChange={handleChange}  />
                             </div>
                         </div>
 
@@ -274,7 +275,7 @@ const visaOptions = [
                             <div className="col-md-4 mb-3">
                                 <label className="form-label">Passport Issued Country</label>
                                
-                                <select className="form-select" name="passportIssuedCountry" value={formData.passportcountry} onChange={handleChange} required>
+                                <select className="form-select" name="passportIssuedCountry" value={formData.passportcountry} onChange={handleChange} >
                                 <option value="">Select Country</option>
                                 {topCountries.map((passportcountry, index) => (
                                     <option key={index} value={passportcountry}>{passportcountry}</option>
@@ -289,7 +290,7 @@ const visaOptions = [
 
                             <div className="col-md-4 mb-3">
                                 <label className="form-label">Country of Residence</label>
-                                <input type="text" className="form-control" name="countryOfResidence" value={formData.countryOfResidence} onChange={handleChange} required />
+                                <input type="text" className="form-control" name="countryOfResidence" value={formData.countryOfResidence} onChange={handleChange}  />
                             </div>
                             <div className="col-md-4 mb-3">
                                 <label className="form-label">Residence Address Line 1</label>
@@ -301,11 +302,11 @@ const visaOptions = [
                             </div>
                             <div className="col-md-4 mb-3">
                                 <label className="form-label">City</label>
-                                <input type="text" className="form-control" name="city" value={formData.city} onChange={handleChange} required />
+                                <input type="text" className="form-control" name="city" value={formData.city} onChange={handleChange}  />
                             </div>
                             <div className="col-md-4 mb-3">
                                 <label className="form-label">Pincode</label>
-                                <input type="text" className="form-control" name="pincode" value={formData.pincode} onChange={handleChange} required />
+                                <input type="text" className="form-control" name="pincode" value={formData.pincode} onChange={handleChange}  />
                             </div>
                             <div className="col-md-4 mb-3">
                                 <label className="form-label">Country</label>
@@ -323,19 +324,19 @@ const visaOptions = [
                         <div className="row mb-4">
                             <div className="col-md-4 mb-3">
                                 <label className="form-label">Utility Bill in Last 3 Months</label>
-                                <input type="file" className="form-control" name="utilityBill" onChange={handleChange} required />
+                                <input type="file" className="form-control" name="utilityBill" onChange={handleChange}  />
                                 {files.utilityBill && <img src={files.utilityBill} alt="Utility Bill Preview" className="img-preview mt-2" />}
                                 <p>Instruction Details with Pic</p>
                             </div>
                             <div className="col-md-4 mb-3">
                                 <label className="form-label">Photo</label>
-                                <input type="file" className="form-control" name="photo" onChange={handleChange} required />
+                                <input type="file" className="form-control" name="photo" onChange={handleChange}  />
                                 {files.photo && <img src={files.photo} alt="Photo Preview" className="img-preview mt-2" />}
                                 <p>Instruction Details with Pic</p>
                             </div>
                             <div className="col-md-4 mb-3">
                                 <label className="form-label">Passport Scan</label>
-                                <input type="file" className="form-control" name="passportScan" onChange={handleChange} required />
+                                <input type="file" className="form-control" name="passportScan" onChange={handleChange}  />
                                 {files.passportScan && <img src={files.passportScan} alt="Passport Scan Preview" className="img-preview mt-2" />}
                                 <p>Instruction Details with Pic</p>
                             </div>

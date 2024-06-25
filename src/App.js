@@ -29,13 +29,16 @@ import Login from './Components/Auth/Login';
 import ApplicationStatus from './Components/ApplicationStatus';
 import PrivateRoute from './Components/PrivateRoute';
 import Checkout from './Components/Checkout';
+import PaymentGateway from './Components/Payment_gateway/PaymentGateway';
+import Success from './Components/Success';
+
 
 
 function App() {
   return (
     <>
       <BrowserRouter>
-      {/* <Navbar /> */}
+
       <NavbarResponsive></NavbarResponsive>
         <Routes>
           <Route path="/" element={<Home />}></Route>
@@ -58,6 +61,8 @@ function App() {
           <Route path="/application" element={<ApplicationStatus />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/checkout" element={<Checkout />}></Route>
+          <Route path="/payment-gateway" element={<PaymentGateway />}></Route>
+          <Route path="/success" element={<Success />}></Route>
         </Routes>
         <ToastContainer />
         <Footer />

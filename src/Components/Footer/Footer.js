@@ -19,8 +19,8 @@ const Footer = () => {
                                 <h5>Company</h5>
                             </div>
                             <div className='footer-sitemap '>
-                                <p><a href="#">UAE Visa</a></p>
-                                <p><a href="">Contact us</a></p>
+                                <p><Link to='/uae-visa'> UAE Vis </Link></p>
+                                <p> <Link to='/contact-us'>Contact us</Link></p>
                                 <p><Link to='/terms'>Terms & Conditions</Link></p>
                             </div>
                         </div>
@@ -29,7 +29,7 @@ const Footer = () => {
                                 <h5>Resources</h5>
                             </div>
                             <div className='footer-sitemap'>
-                                <p><a href="">How to Apply</a></p>
+                                <p> <Link to="/how-to-apply">How to Apply</Link></p>
                                 <p><a href="">Blog</a></p>
                                 <p><a href="">FAQs</a></p>
                             </div>
