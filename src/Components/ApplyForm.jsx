@@ -142,9 +142,16 @@ const visaOptions = [
 
     try {
       const response = await axios.post('https://thesoftwareexperts.com/cdksolar/admin/api/submit_form', bodyFormData, { headers });
-      console.log('Success:', response.data);
+      //console.log('Success:', response.data);
+      localStorage.setItem('user', JSON.stringify(response.data));
       toast.success(response.data.message);
-      navigate('/checkout', { state: location.state.visa });
+
+      const combinedState = {
+        ...location?.state, // existing state
+        user: response?.data?.data, // new data to add
+      };
+
+      navigate('/checkout', { state: combinedState });
     } catch (error) {
       if (error.response) {
         console.error('Error:', error.response.data);
@@ -348,8 +355,6 @@ const visaOptions = [
                                 
                                
                             </div>
-
-
 
                         </div>
                         <hr/>
