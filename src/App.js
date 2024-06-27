@@ -31,8 +31,7 @@ import PaymentGateway from './Components/Payment_gateway/PaymentGateway';
 import Success from './Components/Success';
 import Signup from './Components/Auth/Signup';
 import Faq from './Components/Faq';
-
-
+import ApplicationView from './Components/ApplicationView';
 
 function App() {
   return (
@@ -65,9 +64,7 @@ function App() {
           <Route path="/success" element={<Success />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/faq" element={<Faq />}></Route>
-
-
-
+          <Route path="/application-view/:id" element={<ApplicationView/>}></Route>
         </Routes>
         <ToastContainer />
         <Footer />

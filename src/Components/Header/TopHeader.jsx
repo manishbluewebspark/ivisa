@@ -1,7 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, animateScroll as scroll, scrollSpy } from 'react-scroll';
 
 const TopHeader = () => {
+
+    useEffect(() => {
+        scrollSpy.update();
+    }, []);
+
     return (
         <div>
              <section className='landing-section-one pt-5 pb-4'>
@@ -11,7 +16,7 @@ const TopHeader = () => {
                             <div className='left-con-sec-one mt-2 mb-5'>
                                 <div className="wlc-text">
                                     <h1>Welcome to </h1>
-                                    <h1>iVisa Portal</h1>
+                                    <h1>IVisa Portal</h1>
                                 </div>
                                 <div className='wlc-text'>
                                     <p className="mb-4">Apply Now For Your UAE Visit Visa and Dubai Tourist Visa Online in <span className='text-warning' >3 Simple Steps.</span></p>
@@ -31,7 +36,17 @@ const TopHeader = () => {
                                     </div>
                                 </div>
                                 <div className='sec-one-apl-btn'>
-                                    <Link className='btn btn-warning text-white' to="/apply"> Apply Now</Link>
+                                    <Link
+                                        className="btn btn-warning text-white"
+                                        activeClass="active btn btn-warning text-white"
+                                        to="section1"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-40}
+                                        duration={300}
+                                    >
+                                        Apply Now 
+                                    </Link>
                                 </div>
                             </div>
                         </div>
