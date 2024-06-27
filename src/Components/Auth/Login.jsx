@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
+import { Form, Button, Container, Row, Col, Alert ,P} from 'react-bootstrap';
+import logo  from '../../images/newlogo.png'
 
 const Login = () => {
 
@@ -45,8 +46,9 @@ const Login = () => {
   return (
     <Container className='login-con'>
       <Row className="justify-content-md-center mt-5">
+        
         <Col className='login-form-col' xs={12} md={6}>
-          <h3 className="text-center">Login</h3>
+          <h3 className="text-center login-to-ivisa">Login to iVisa</h3>
           {message && <Alert variant="danger">{message}</Alert>}
           <Form onSubmit={handleLogin}>
             <Form.Group controlId="formBasicEmail">
@@ -70,10 +72,11 @@ const Login = () => {
               />
             </Form.Group>
 
-            <Button variant="warning" type="submit" className="w-100 mt-3">
+            <Button variant="warning" type="submit" className="w-100 mt-3 text-white">
               Login
             </Button>
           </Form>
+            <div className='not-yet-member mt-4'><p className='primary-color'>Not yet member ? <Link to="/signup" className='text-warning'>Sign up for iVisa</Link></p></div>
         </Col>
       </Row>
     </Container>

@@ -9,7 +9,7 @@ const TopHeader = () => {
 
     return (
         <div>
-             <section className='landing-section-one'>
+             <section className='landing-section-one pt-5 pb-4'>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6 col-md-12 col-sm-12 col-12" >

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import '../../src/App.css';
-import logo from '../images/ivisa-logo.jpg';
+import logo from '../images/newlogo.png';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
 
@@ -29,7 +29,7 @@ const NavbarResponsive = () => {
       <div className="container navcontainer">
         <div className="logo">
         <div>
-                <Link to="/home">  <img src={logo} alt="" height={60} width={140} /> </Link>
+                <Link to="/home">  <img src={logo} alt="" height={60} /> </Link>
         </div>
         </div>
         <div className="nav-menu-icon" onClick={handleShowNavbar}>
@@ -59,7 +59,7 @@ const NavbarResponsive = () => {
                       </Dropdown.Menu>
                     </Dropdown>
                   </li>
-                  <li><Link to="/how-to-apply">HOW TO APPLY</Link></li>
+                  <li className="how-to-apl"><Link to="/how-to-apply" >HOW TO APPLY</Link></li>
                   <li><Link to="/blogs">BLOGS</Link></li>
                   <li><Link to="/contact-us">Contact Us</Link></li>
                   <li>{user ?  <Button variant="link" onClick={handleLogout}>Logout</Button> : <Link to="/login">Login</Link>} </li>

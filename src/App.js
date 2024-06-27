@@ -6,11 +6,9 @@ import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import ContactUs from './Components/ContactUs';
 import EntryVisaHeader from './Components/Header/EntryVisaHeader';
-
 import ApplyForm from './Components/ApplyForm';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
-
 import SingleEntryFortenDay from './Components/Entryvisa/SingleEntry/SingleEntryFortenDay';
 import SingleEntry_30day  from './Components/Entryvisa/SingleEntry/SingleEntry_30day';
 import SingleEntrySixty  from './Components/Entryvisa/SingleEntry/SingleEntrySixty';
@@ -31,9 +29,9 @@ import PrivateRoute from './Components/PrivateRoute';
 import Checkout from './Components/Checkout';
 import PaymentGateway from './Components/Payment_gateway/PaymentGateway';
 import Success from './Components/Success';
+import Signup from './Components/Auth/Signup';
+import Faq from './Components/Faq';
 import ApplicationView from './Components/ApplicationView';
-
-
 
 function App() {
   return (
@@ -64,6 +62,8 @@ function App() {
           <Route path="/checkout" element={<Checkout />}></Route>
           <Route path="/payment-gateway" element={<PaymentGateway />}></Route>
           <Route path="/success" element={<Success />}></Route>
+          <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/faq" element={<Faq />}></Route>
           <Route path="/application-view/:id" element={<ApplicationView/>}></Route>
         </Routes>
         <ToastContainer />
