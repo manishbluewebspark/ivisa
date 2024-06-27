@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 const TopHeader = () => {
     return (
         <div>
-             <section className='landing-section-one'>
+             <section className='landing-section-one pt-5 pb-4'>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6 col-md-12 col-sm-12 col-12" >
                             <div className='left-con-sec-one mt-2 mb-5'>
                                 <div className="wlc-text">
                                     <h1>Welcome to </h1>
-                                    <h1> IVisa Portal</h1>
+                                    <h1>iVisa Portal</h1>
                                 </div>
                                 <div className='wlc-text'>
                                     <p className="mb-4">Apply Now For Your UAE Visit Visa and Dubai Tourist Visa Online in <span className='text-warning' >3 Simple Steps.</span></p>
