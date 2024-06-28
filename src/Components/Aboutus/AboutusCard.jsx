@@ -21,11 +21,11 @@ const AboutusCard = () => {
         if (windowWidth >= 1024) {
           setCenterSlidePercentage(33.33);  // For large screens
         } else if (windowWidth >= 992) {
-          setCenterSlidePercentage(60);  // For medium screens
+          setCenterSlidePercentage(33.33);  // For medium screens
         } else if (windowWidth >= 768) {
           setCenterSlidePercentage(33.33);  // For small screens (tablets)
         } else if (windowWidth >= 576) {
-          setCenterSlidePercentage(80);  // For extra small screens (large phones)
+          setCenterSlidePercentage(100);  // For extra small screens (large phones)
         } else {
           setCenterSlidePercentage(100);  // For very small screens (small phones)
         }

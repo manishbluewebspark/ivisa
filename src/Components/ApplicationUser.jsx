@@ -3,20 +3,14 @@ import axios from 'axios';
 import Badge from 'react-bootstrap/Badge';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faFileAlt, faLock, faTicketAlt, faUserPlus, faListAlt, faCheck, faHistory, faChartBar } from '@fortawesome/free-solid-svg-icons'; // Import the icons you need
+import { faUser, faFileAlt, faLock, faTicketAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons'; // Import the icons you need
 
 const ApplicationStatus = () => {
-  const [applications, setApplications] = useState([]);
+  const [application, setApplication] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [stats, setStats] = useState({
-    totalReceived: 0,
-    totalApproved: 0,
-    totalRejected: 0,
-    totalProcessing: 0,
-    totalCompleted: 0,
-    totalOnHold: 0
-  });
+  const [user, setUser] = useState(null); // State to hold user information
+  const userData = JSON.parse(localStorage.getItem('user'));
 
   const username = 'admin'; // Replace with actual username from login state
   const password = '1234'; // Replace with actual password from login state
@@ -27,63 +21,39 @@ const ApplicationStatus = () => {
   };
 
   useEffect(() => {
-    const fetchApplications = async () => {
-      try {
-        const response = await axios.get(`https://thesoftwareexperts.com/cdksolar/admin/api/application`, { headers });
-        setApplications(response.data);
-        calculateStatistics(response.data);
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
-      }
-    };
-    fetchApplications();
-  }, []);
+    if(userData.data.id){
+      const fetchUser = async () => {
+        try {
+          // Simulate fetching user details (replace with actual logic)
+          const user = { name: 'John Doe' }; // Replace with actual user object
+          setUser(user);
+        } catch (error) {
+          console.error('Error fetching user:', error);
+        }
+      };
+      fetchUser();
+    
+      const fetchApplication = async () => {
 
-  const calculateStatistics = (data) => {
-    const stats = {
-      totalReceived: 0,
-      totalApproved: 0,
-      totalRejected: 0,
-      totalProcessing: 0,
-      totalCompleted: 0,
-      totalOnHold: 0
-    };
+        try {
+          const response = await axios.get(`https://thesoftwareexperts.com/cdksolar/admin/api/application/${userData.data.id}`, { headers });
+          setApplication(response.data);
+          setLoading(false);
+        } catch (error) {
+          setError(error.response.data.message);
+          setLoading(false);
+        }
+      };
+      fetchApplication();
+    }
+  }, [userData.data.id]);
 
-    data.forEach(app => {
-      switch (app.status) {
-        case '0':
-          stats.totalReceived++;
-          break;
-        case '1':
-        case '4':
-          stats.totalProcessing++;
-          break;
-        case '2':
-          stats.totalApproved++;
-          break;
-        case '3':
-          stats.totalRejected++;
-          break;
-        case '5':
-          stats.totalCompleted++;
-          break;
-        case '6':
-          stats.totalOnHold++;
-          break;
-        default:
-          break;
-      }
-    });
 
-    setStats(stats);
-  };
 
   const getStatusLabel = (status) => {
     switch (status) {
       case '0':
-        return <Badge pill bg="primary">Received</Badge>;
+        return <Badge pill bg="primary">Application Received</Badge>;
       case '1':
         return <Badge pill bg="info">Under Review</Badge>;
       case '2':
@@ -108,54 +78,37 @@ const ApplicationStatus = () => {
           <div className="d-flex justify-content-between align-items-center mb-3">
             <div className="d-flex align-items-center">
               <FontAwesomeIcon icon={faUser} className="me-2" size="lg" />
-              <span>Welcome, Administrator</span>
+              {userData?.data && <span>Welcome, {userData?.data?.email}</span>}
             </div>
             <div className="top-menu bg-warning p-3 d-flex justify-content-center align-items-center rounded shadow-sm">
               <ul className="list-unstyled mb-0 d-flex">
                 <li className="me-3">
                   <Link to="/my-applications" className="text-decoration-none text-dark py-2 px-3 rounded">
-                    <FontAwesomeIcon icon={faFileAlt} className="me-1" /> My Apps
+                    <FontAwesomeIcon icon={faFileAlt} className="me-1" /> My Applications
                   </Link>
                 </li>
                 <li className="me-3">
-                  <Link to="/approved-applications" className="text-decoration-none text-dark py-2 px-3 rounded">
-                    <FontAwesomeIcon icon={faCheck} className="me-1" /> Approved
+                  <Link to="/change-password" className="text-decoration-none text-dark py-2 px-3 rounded">
+                    <FontAwesomeIcon icon={faLock} className="me-1" /> Change Password
                   </Link>
                 </li>
                 <li className="me-3">
-                  <Link to="/new-applications" className="text-decoration-none text-dark py-2 px-3 rounded">
-                    <FontAwesomeIcon icon={faListAlt} className="me-1" /> New
+                  <Link to="/raise-ticket" className="text-decoration-none text-dark py-2 px-3 rounded">
+                    <FontAwesomeIcon icon={faTicketAlt} className="me-1" /> Raise Ticket
                   </Link>
                 </li>
-                <li className="me-3">
-                  <Link to="/payment-history" className="text-decoration-none text-dark py-2 px-3 rounded">
-                    <FontAwesomeIcon icon={faHistory} className="me-1" /> Payment
-                  </Link>
-                </li>
-                <li className="me-3">
-                  <Link to="/statistics" className="text-decoration-none text-dark py-2 px-3 rounded">
-                    <FontAwesomeIcon icon={faChartBar} className="me-1" /> Stats
+                <li>
+                  <Link to="/add-traveler" className="text-decoration-none text-dark py-2 px-3 rounded">
+                    <FontAwesomeIcon icon={faUserPlus} className="me-1" /> Add Traveler
                   </Link>
                 </li>
               </ul>
-            </div>
-          </div>
-          <div className="bg-light p-3 rounded shadow-sm mb-3">
-            <h5 className="mb-0">Application Statistics:</h5>
-            <div className="mt-3">
-              <span className="me-3"><Badge pill bg="primary">Received: {stats.totalReceived}</Badge></span>
-              <span className="me-3"><Badge pill bg="success">Approved: {stats.totalApproved}</Badge></span>
-              <span className="me-3"><Badge pill bg="danger">Rejected: {stats.totalRejected}</Badge></span>
-              <span className="me-3"><Badge pill bg="warning" text="dark">Processing: {stats.totalProcessing}</Badge></span>
-              <span className="me-3"><Badge pill bg="success">Completed: {stats.totalCompleted}</Badge></span>
-              <span><Badge pill bg="secondary">On Hold: {stats.totalOnHold}</Badge></span>
             </div>
           </div>
         </div>
       </div>
       <div className="row mt-3">
         <div className="col-md-12">
-          <h2 className="mb-4">Visa Admin Application</h2>
           <div className="table-responsive">
             <table className="table table-bordered table-hover">
               <thead className="table-dark">
@@ -170,7 +123,7 @@ const ApplicationStatus = () => {
                 </tr>
               </thead>
               <tbody>
-                {applications.map((item) => (
+                {application.map((item) => (
                   <tr key={item.id}>
                     <td>#{item.id}</td>
                     <td>{item.first_name} {item.last_name}</td>

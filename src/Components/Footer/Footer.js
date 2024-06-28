@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../images/ivisa-logo.jpg'
+import logo from '../../images/newlogo.png'
 import '../Footer/footer.css'
 import { Link } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ const Footer = () => {
                     <div className="row footer-row">
                         <div className="col-lg-3 col-md-4 col-sm-12 col-12">
                             <div>
-                                <img src={logo} alt="" width={200} height={100} />
+                                <img src={logo} alt="" width={260} height={100} />
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6">
@@ -19,7 +19,7 @@ const Footer = () => {
                                 <h5>Company</h5>
                             </div>
                             <div className='footer-sitemap '>
-                                <p><Link to='/uae-visa'> UAE Vis </Link></p>
+                                <p><Link to='/uae-visa'> UAE Visa </Link></p>
                                 <p> <Link to='/contact-us'>Contact us</Link></p>
                                 <p><Link to='/terms'>Terms & Conditions</Link></p>
                             </div>

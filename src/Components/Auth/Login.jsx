@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
+import { Form, Button, Container, Row, Col, Alert ,P} from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 const Login = () => {
 
@@ -18,8 +19,6 @@ const Login = () => {
     'X-API-KEY': 'CODEX@123',
   };
 
-
-
   const handleLogin = async (e) => {
       e.preventDefault();
       try {
@@ -29,24 +28,31 @@ const Login = () => {
           }, { headers });
 
           if (response.data.status) {
-              console.log(response.data);
               setMessage('Login successful!');
               // Save the user data or token here
               localStorage.setItem('user', JSON.stringify(response.data));
+              toast.success(response.data.message);
               // You can save the user data or token here, and redirect the user
-              navigate('/application');
+              if(response.data.data.role == "admin"){
+                navigate('/application');
+              }else{
+                navigate('/application-user');
+              }
           } else {
               setMessage('Login failed: ' + response.data.message);
+              toast.error(response.data.message);
           }
       } catch (error) {
           setMessage('Login failed: ' + error.message);
+          toast.error(error.response.data.message);
       }
   };
   return (
     <Container className='login-con'>
       <Row className="justify-content-md-center mt-5">
+        
         <Col className='login-form-col' xs={12} md={6}>
-          <h3 className="text-center">Login</h3>
+          <h3 className="text-center login-to-ivisa">Login to iVisa</h3>
           {message && <Alert variant="danger">{message}</Alert>}
           <Form onSubmit={handleLogin}>
             <Form.Group controlId="formBasicEmail">
@@ -57,6 +63,7 @@ const Login = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter email"
                 required
+                autoFocus={false}
               />
             </Form.Group>
 
@@ -67,13 +74,15 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
                 required
+                autoFocus={false}
               />
             </Form.Group>
 
-            <Button variant="warning" type="submit" className="w-100 mt-3">
+            <Button variant="warning" type="submit" className="w-100 mt-3 text-white">
               Login
             </Button>
           </Form>
+            <div className='not-yet-member mt-4'><p className='primary-color'>Not yet member ? <Link to="/signup" className='text-warning'>Sign up for iVisa</Link></p></div>
         </Col>
       </Row>
     </Container>

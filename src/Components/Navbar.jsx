@@ -41,8 +41,9 @@ const Navbar = () => {
                     </Dropdown>
                   </li>
                   <li><Link to="/how-to-apply">HOW TO APPLY</Link></li>
-                  <li><Link to="/blogs">BLOGS</Link></li>
-                  <li><Link to="/contact-us">Contact Us</Link></li>
+                  <li><Link to="/faq">FAQ</Link></li>
+                  {/* <li><Link to="/blogs">BLOGS</Link></li> */}
+                  <li><Link to="/contact-us">Contact Us s</Link></li>
                   {/* <li><Link to="/ar-en">AR-EN</Link></li> */}
                 </ul>
               </div>

@@ -11,12 +11,20 @@ const stripePromise = loadStripe('pk_test_jLPtcL9qAyE3kJEMG6BoI9c5');
 const CheckoutForm = () => {
     const location = useLocation();
     const visaData = location.state || {};
-
     const handleClick = async (event) => {
         event.preventDefault();
 
+        const username = 'admin';
+        const password = '1234';
+        //const encodedCredentials =  btoa(`${username}:${password}`);
+        const encodedCredentials = 'Basic ' + btoa(username + ':' + password);
+        const headers = {
+          'Authorization': encodedCredentials,
+          'X-API-KEY': 'CODEX@123',
+        };
+
         try {
-            const response = await axios.post('http://thesoftwareexperts.com/cdksolar/admin/StripeController/createCheckoutSession', visaData);
+            const response = await axios.post('http://thesoftwareexperts.com/cdksolar/admin/api/create_checkout_session', visaData, { headers });
 
             const session = response.data;
             if (!session || !session.id) {
