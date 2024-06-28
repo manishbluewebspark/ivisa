@@ -9,6 +9,7 @@ const MultiEntry_30day = () => {
     const descp = "Dubai Visit visa VISA"
     const duration = "30 Days";
     const [isActive, setActive] = useState(false);
+    const user = JSON.parse(localStorage.getItem('user'));
 
     const [visaPrices, setVisaPrices] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -86,9 +87,22 @@ const MultiEntry_30day = () => {
                                         </div>
                                     <div class="row">
                                         <div class="col card-btn">
-                                                <Link className='text-white text-decoration-none btn btn-warning' to={`/apply/${encodeURIComponent(visa.duration + ' ' + visa.visa_type)}`} state={{ visa: visa }}>
+                                                  {user ? (
+                                                <Link
+                                                    className='text-white text-decoration-none btn btn-warning'
+                                                    to={`/apply/${encodeURIComponent(visa.duration + ' ' + visa.visa_type)}`}
+                                                    state={{ visa: visa }}
+                                                >
                                                     Apply Now
                                                 </Link>
+                                                ) : (
+                                                <Link
+                                                    className='text-white text-decoration-none btn btn-warning'
+                                                    to={`/login`}
+                                                >
+                                                    Apply Now
+                                                </Link>
+                                                )}
                                         </div>
                                     </div>
                                 </div>

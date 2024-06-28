@@ -4,6 +4,8 @@ import EntryVisaHeader from '../../Header/EntryVisaHeader';
 const SingleEntryThirtydayGcc = () => {
     const title = "30 Days";
     const descp = "Visa for GCC Residents"
+    const user = JSON.parse(localStorage.getItem('user'));
+    
     return (
         <>
             <EntryVisaHeader title={title} descp={descp} ></EntryVisaHeader>

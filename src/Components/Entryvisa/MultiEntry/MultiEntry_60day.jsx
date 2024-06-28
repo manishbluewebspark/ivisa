@@ -14,6 +14,8 @@ const MultiEntry60day = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const user = JSON.parse(localStorage.getItem('user'));
+
     const handleClick = () => {
         setActive(prevState => !prevState);
     };
@@ -84,9 +86,22 @@ const MultiEntry60day = () => {
                                         </div>
                                     <div class="row">
                                         <div class="col card-btn">
-                                                <Link className='text-white text-decoration-none btn btn-warning' to={`/apply/${encodeURIComponent(visa.duration + ' ' + visa.visa_type)}`} state={{ visa: visa }}>
+                                                {user ? (
+                                                <Link
+                                                    className='text-white text-decoration-none btn btn-warning'
+                                                    to={`/apply/${encodeURIComponent(visa.duration + ' ' + visa.visa_type)}`}
+                                                    state={{ visa: visa }}
+                                                >
                                                     Apply Now
                                                 </Link>
+                                                ) : (
+                                                <Link
+                                                    className='text-white text-decoration-none btn btn-warning'
+                                                    to={`/login`}
+                                                >
+                                                    Apply Now
+                                                </Link>
+                                                )}
                                         </div>
                                     </div>
                                 </div>

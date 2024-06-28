@@ -24,6 +24,7 @@ import UaeVisa from './Components/UaeVisa';
 import Terms from './Components/Terms';
 import NavbarResponsive from './Components/NavbarResponsive';
 import Login from './Components/Auth/Login';
+import ApplicationUser from './Components/ApplicationUser';
 import ApplicationStatus from './Components/ApplicationStatus';
 import PrivateRoute from './Components/PrivateRoute';
 import Checkout from './Components/Checkout';
@@ -58,6 +59,7 @@ function App() {
           <Route path="/uae-visa" element={<UaeVisa />}></Route>
           <Route path="/terms" element={<Terms />}></Route>
           <Route path="/application" element={<ApplicationStatus />}></Route>
+          <Route path="/application-user" element={<ApplicationUser />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/checkout" element={<Checkout />}></Route>
           <Route path="/payment-gateway" element={<PaymentGateway />}></Route>

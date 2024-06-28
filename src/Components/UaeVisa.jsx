@@ -7,6 +7,8 @@ import { Element } from 'react-scroll';
 
 const UaeVisa = () => {
     
+    const user = JSON.parse(localStorage.getItem('user'));
+
     const [activeTab, setActiveTab] = useState('single');
     const [isActive, setActive] = useState(false);
 
@@ -121,9 +123,22 @@ const UaeVisa = () => {
                                                             </div>
                                                             <div className="row">
                                                                 <div className="col card-btn">
-                                                                    <Link className='text-white text-decoration-none btn btn-warning' to={`/apply/${encodeURIComponent(visa.duration +' '+ visa.visa_type)}`} state={{visa:visa}}> 
-                                                                        Apply Now
-                                                                    </Link>
+                                                                    {user ? (
+                                                                        <Link
+                                                                            className='text-white text-decoration-none btn btn-warning'
+                                                                            to={`/apply/${encodeURIComponent(visa.duration + ' ' + visa.visa_type)}`}
+                                                                            state={{ visa: visa }}
+                                                                        >
+                                                                            Apply Now
+                                                                        </Link>
+                                                                    ) : (
+                                                                        <Link
+                                                                            className='text-white text-decoration-none btn btn-warning'
+                                                                            to={`/login`}
+                                                                        >
+                                                                            Apply Now
+                                                                        </Link>
+                                                                    )}
                                                                 </div>
                                                             </div>
                                                         </div>

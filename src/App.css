@@ -1506,3 +1506,16 @@ text-decoration: none;
   box-shadow: 0 -3px 3px 0 rgba(0, 0, 0, 0.2), 0 0px 3px 0 rgba(0, 0, 0, 0.19);
 }
 
+.login-singnup-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fdb514;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+.top-menu a:hover {
+  background-color: #fff; /* Adjust to your preferred hover background color */
+}

@@ -5,7 +5,8 @@ const SingleEntryThirtyday = () => {
     const title = " 30 Days";
     const descp = "Dubai Visit visa VISA";
     const [activeIndex, setActiveIndex] = useState(0);
-
+    const user = JSON.parse(localStorage.getItem('user'));
+    
     const toggleCollapse = (index) => {
       setActiveIndex(index === activeIndex ? -1 : index);
     };

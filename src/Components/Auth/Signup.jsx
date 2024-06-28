@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -8,6 +10,7 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [message,setMessage]=useState('');
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const username1 = 'admin';
@@ -34,20 +37,27 @@ const Signup = () => {
         const response = await axios.post('https://thesoftwareexperts.com/cdksolar/admin/api/register', {
             email: email,
             password: password
-        }, { headers });
+        }, { 
+          headers 
+        });
+
+        console.log(response.data);
 
         if (response.data.status) {
-            console.log(response.data);
             setMessage('Register successful!');
-            // Save the user data or token here
-            // localStorage.setItem('user', JSON.stringify(response.data));
-            // You can save the user data or token here, and redirect the user
-            navigate('/login');
+            toast.success(response.data.message);
+            localStorage.setItem('user', JSON.stringify(response.data.data));
+            navigate('/home');
+            setLoading(false);
         } else {
             setMessage('Login failed: ' + response.data.message);
+            toast.error(response.data.message);
         }
     } catch (error) {
-        setMessage('Login failed: ' + error.message);
+      console.log(error.response.data.message);
+      setMessage('Login failed: ' + error.message);
+      toast.error(error.response.data.message);
+      setLoading(false);
     }
 };
 
@@ -68,6 +78,7 @@ const Signup = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    autoFocus={false}
                   />
                 </div>
                 <div className="form-group">
@@ -79,11 +90,12 @@ const Signup = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
+                    autoFocus={false}
                   />
                 </div>
                 {error && <div className="alert alert-danger">{error}</div>}
-                <button type="submit" className="btn btn-warning btn-block mt-4 w-100 text-white">
-                  Signup
+                <button type="submit" className="btn btn-warning btn-block mt-4 w-100 text-white"> 
+                   {!loading ? <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>:""} Signup 
                 </button>
               </form>
               <div className='not-yet-member mt-4'><p><Link to="/login" className='text-warning'>Already have an account?</Link></p></div>
